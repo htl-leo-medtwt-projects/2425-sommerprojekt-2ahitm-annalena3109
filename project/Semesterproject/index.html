@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>TSP</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="flickerScreen"></div>
+    <div id="firstPage">
+        <p id="title">The Sleeper's Paradox</p>
+        <div id="infoButton" onclick="showInfos()">?</div>
+        <div id="infos">
+            <p>You're trapped in an endless nightmare - but to wake up, you have to face every single one of them. Can you make it to the morning?</p>
+            <div id="closeButton" onclick="closeInfos()">Close</div>
+        </div>
+        <div id="startText" onclick="goToInputPage()">Start</div>
+    </div>
+    <div id="inputPage">
+        <p id="inputTitle">User Profile</p>
+        <div id="inputScreen">
+            Name: 
+            <input id="nameInput" type="text">
+            <br>
+            Mute: <br>
+            Volume:
+            <div id="saveButton" onclick="safeAndStart()">Save and start</div>
+        </div>
+    </div>
+</body>
+</html>
