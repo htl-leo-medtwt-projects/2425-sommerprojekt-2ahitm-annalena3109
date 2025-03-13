@@ -65,6 +65,7 @@ body{
     margin-left: 30%;
     margin-top: 15vh;
     position: absolute;
+    display: none;
 }
 #closeButton{
     background-color: black;
@@ -122,6 +123,7 @@ body{
     font-family: startFont;
     font-size: 30vh;
     margin-top: 8vh;
+    padding-top: 2vh;
     margin-left: 31%;
     position: absolute;
     text-shadow: 15px 2px rgba(0, 0, 0, 0.735);
@@ -143,8 +145,107 @@ body{
     border: none;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.556);
-    margin-top: -5vh;
+    margin-top: 2.9vh;
+    margin-left: 1.5%;
+    position: absolute;
 }
 #saveButton{
     font-family: startFont;
+    font-size: 10vh;
+    margin-left: 30%;
+}
+/*mutebutton - logic from W3Schools, styling from me*/
+.switch {
+    position: absolute;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-top: 3vh;
+    margin-left: 4.5%;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slide {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.568);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slide:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slide {
+    background-color: #0629459d;
+}
+input:focus + .slide {
+    box-shadow: 0 0 1px #032d5056;
+}
+input:checked + .slide:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+.slide.round {
+    border-radius: 34px;
+}
+.slide.round:before {
+    border-radius: 50%;
+} 
+/*volume slider - logic from W3Schools, styling from me*/
+.slidecontainer { 
+    width: 100%;
+    margin-top: -10vh;
+    margin-left: 37%;
+    position: absolute;
+}
+.slider {
+    -webkit-appearance: none;
+    width: 40%;
+    height: 7px;
+    border-radius: 5px;  
+    background: #ffffff;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%; 
+    background: #3604aa;
+    cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #3604aa;
+    cursor: pointer;
+}
+
+
+/*Spider page styling*/
+#spiderPage{
+    display: none;
 }
