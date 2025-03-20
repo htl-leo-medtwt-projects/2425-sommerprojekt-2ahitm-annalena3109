@@ -40,7 +40,29 @@
     </div>
 
     <div id="spiderPage">
-        
+        <div id="scenarioBox1">
+            <p id="scenario">You wake up, in complete darkness. The air is damp, and a faint skittering noise echoes through the cave.
+                As your eyes adjust, you realize the walls are covered in thick, web-like strands. 
+                A dim glow pulses in the distance, revealing several shadowy tunnels ahead.
+                As you move forward cautiously, you suddenly hear a loud chittering above you.
+                You look up and see a mass of huge, glistening eyes staring down at you from the ceiling. 
+                A massive spider lowers itself on a web, blocking your path. Its fangs click together, dripping with something dark and venomous. 
+                It doesn't attack immediately—it's waiting to see what you'll do.
+            </p>
+            <br>
+            <p id="question">What will you do?</p>
+        </div>
+        <div id="options">
+            <div class="option" id="option1" onclick="checkStatus(-5, 1)">
+                do this
+            </div>
+            <div class="option" id="option2" onclick="checkStatus(0, 1)">
+                do that
+            </div>
+            <div class="option" id="option3" onclick="checkStatus(100, 1)">
+                die
+            </div>
+        </div>
     </div>
 </body>
 </html>

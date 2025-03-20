@@ -2,6 +2,10 @@
     font-family: startFont;
     src: url(font/Nightmare\ 5.ttf);
 }
+@font-face {
+    font-family: font2;
+    src: url(font/1942.ttf);
+}
 body{
     overflow: hidden;
     background-image: url(img/startBG.jpg);
@@ -206,7 +210,7 @@ input:checked + .slide:before {
 }
 .slide.round:before {
     border-radius: 50%;
-} 
+}
 /*volume slider - logic from W3Schools, styling from me*/
 .slidecontainer { 
     width: 100%;
@@ -248,4 +252,43 @@ input:checked + .slide:before {
 /*Spider page styling*/
 #spiderPage{
     display: none;
+}
+#scenarioBox1{
+    background-color: rgba(255, 255, 255, 0.756);
+    border-radius: 25px;
+    border: none;
+    width: 58%;
+    margin-left: 20%;
+    margin-top: 10vh;
+    padding: 1%;
+}
+#scenario{
+    font-family: font2;
+    font-size: 3vh;
+}
+#question{
+    font-family: font2;
+    font-size: 3vh;
+    text-align: center;
+}
+#options{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5%;
+    margin-top: 3vh;
+    width: 60%;
+    margin-left: 21%;
+}
+.option{
+    background-color: rgba(255, 255, 255, 0.456);
+    border-radius: 20px;
+    padding: 2%;
+    width: 85%;
+    font-family: font2;
+    text-align: center;
+    z-index: 1000;
+}
+.option:hover{
+    background-color: rgba(0, 0, 0, 0.756);
+    color: white;
 }
