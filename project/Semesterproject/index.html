@@ -41,27 +41,46 @@
 
     <div id="spiderPage">
         <div id="scenarioBox1">
-            <p id="scenario">You wake up, in complete darkness. The air is damp, and a faint skittering noise echoes through the cave.
-                As your eyes adjust, you realize the walls are covered in thick, web-like strands. 
-                A dim glow pulses in the distance, revealing several shadowy tunnels ahead.
-                As you move forward cautiously, you suddenly hear a loud chittering above you.
-                You look up and see a mass of huge, glistening eyes staring down at you from the ceiling. 
-                A massive spider lowers itself on a web, blocking your path. Its fangs click together, dripping with something dark and venomous. 
-                It doesn't attack immediately—it's waiting to see what you'll do.
+            <p id="scenario">
+                <span>You wake up, in complete darkness. The air is damp,</span>
+                <span>and a faint skittering noise echoes through the</span>
+                <span>cave. As your eyes adjust, you realize the walls are</span>
+                <span>covered in thick, web-like strands. A dim glow</span>
+                <span>pulses in the distance, revealing several shadowy</span>
+                <span>tunnels ahead. As you move forward cautiously, you</span>
+                <span>suddenly hear a loud chittering above you. You look</span>
+                <span>up and see a mass of huge, glistening eyes staring</span>
+                <span>down at you from the ceiling. A massive spider</span>
+                <span>lowers itself on a web, blocking your path. Its</span>
+                <span>fangs click together, dripping with something dark</span>
+                <span>and venomous. It doesn't attack immediately—it's</span>
+                <span>waiting to see what you'll do.</span>
             </p>
             <br>
             <p id="question">What will you do?</p>
         </div>
         <div id="options">
             <div class="option" id="option1" onclick="checkStatus(-5, 1)">
-                do this
+                Stay still and don't make a sound
             </div>
             <div class="option" id="option2" onclick="checkStatus(0, 1)">
-                do that
+                Take slow steps backwards, trying to be quiet 
             </div>
             <div class="option" id="option3" onclick="checkStatus(100, 1)">
-                die
+                Turn around and run away as fast as you can
             </div>
+        </div>
+    </div>
+
+
+    <div id="diedScreen">
+        <div id="diedText">
+            <p id="diedHeader">Unfortunately you died</p>
+            <p id="diedText1">Do you want to save your score to the leaderboard or play again?</p>
+        </div>
+        <div id="buttons">
+            <div id="saveLeaderboard" onclick="saveToLeaderboard()">Leaderboard</div>
+            <div id="tryAgain" onclick="tryAgain()">Try Again</div>
         </div>
     </div>
 </body>

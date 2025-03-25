@@ -4,6 +4,7 @@ let body = document.body
 let firstPage = document.getElementById("firstPage")
 let inputPage = document.getElementById("inputPage")
 let spiderPage = document.getElementById("spiderPage")
+let diedPage = document.getElementById("diedScreen")
 let userstatus = 0
 let levelCount = 0
 let gameCount = 0
@@ -42,6 +43,7 @@ function saveAndStart(){
     else{
         alert("Type a name")
     }
+    console.log("userstatus: " + userstatus + ", levelcount: " + levelCount + ", gamecount: " + gameCount + ", username: " + username)
 }
 
 
@@ -58,6 +60,7 @@ function checkStatus(points, level){
     if(level > levelCount){
         levelCount++
     }
+    console.log("userstatus: " + userstatus + ", levelcount: " + levelCount + ", gamecount: " + gameCount + ", username: " + username)
 }
 
 
@@ -69,4 +72,22 @@ function nextScenario(){
 //ending:
 function died(){
     console.log("You died.")
+    
+    body.style.backgroundImage = "url(img/diedBG.jpg)"
+    diedPage.style.display = "block"
+    spiderPage.style.display = "none"
 }
+
+//try again:
+function tryAgain(){
+    diedPage.style.display = "none"
+    firstPage.style.display = "block"  
+    userstatus = 0
+    levelCount = 0
+    gameCount = 0
+    username = " "
+    body.style.backgroundImage = "url(img/startBG.jpg)"
+    console.log("userstatus: " + userstatus + ", levelcount: " + levelCount + ", gamecount: " + gameCount + ", username: " + username)
+}
+
+//other:
