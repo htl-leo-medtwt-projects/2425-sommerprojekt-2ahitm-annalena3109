@@ -272,10 +272,10 @@ input:checked + .slide:before {
     font-size: 3vh;
     text-align: center;
     animation: fadeIn 0.7s forwards;
-    animation-delay: 26s;
+    animation-delay: 7s;
     opacity: 0;
 }
-#options{
+#options1{
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 5%;
@@ -293,7 +293,7 @@ input:checked + .slide:before {
     z-index: 1000;
     opacity: 0;
     animation: fadeIn 1s forwards;
-    animation-delay: 28s;
+    animation-delay: 9s;
 }
 .option:hover{
     background-color: rgba(0, 0, 0, 0.756);
@@ -304,19 +304,22 @@ input:checked + .slide:before {
     opacity: 0;
     animation: fadeIn 0.7s forwards;
 }
+
 #scenario span:nth-child(1) { animation-delay: 0s; }
-#scenario span:nth-child(2) { animation-delay: 2s; }
-#scenario span:nth-child(3) { animation-delay: 4s; }
-#scenario span:nth-child(4) { animation-delay: 6s; }
-#scenario span:nth-child(5) { animation-delay: 8s; }
-#scenario span:nth-child(6) { animation-delay: 10s; }
-#scenario span:nth-child(7) { animation-delay: 12s; }
-#scenario span:nth-child(8) { animation-delay: 14s; }
-#scenario span:nth-child(9) { animation-delay: 16s; }
-#scenario span:nth-child(10) { animation-delay: 18s; }
-#scenario span:nth-child(11) { animation-delay: 20s; }
-#scenario span:nth-child(12) { animation-delay: 22s; }
-#scenario span:nth-child(13) { animation-delay: 24s; }
+#scenario span:nth-child(2) { animation-delay: 0.5s; }
+#scenario span:nth-child(3) { animation-delay: 1s; }
+#scenario span:nth-child(4) { animation-delay: 1.5s; }
+#scenario span:nth-child(5) { animation-delay: 2s; }
+#scenario span:nth-child(6) { animation-delay: 2.5s; }
+#scenario span:nth-child(7) { animation-delay: 3s; }
+#scenario span:nth-child(8) { animation-delay: 3.5s; }
+#scenario span:nth-child(9) { animation-delay: 4s; }
+#scenario span:nth-child(10) { animation-delay: 4.5s; }
+#scenario span:nth-child(11) { animation-delay: 5s; }
+#scenario span:nth-child(12) { animation-delay: 5.5s; }
+#scenario span:nth-child(13) { animation-delay: 6s; }
+
+
 
 @keyframes fadeIn {
     0% {opacity: 0;};

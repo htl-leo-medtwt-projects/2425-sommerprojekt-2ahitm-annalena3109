@@ -5,8 +5,10 @@ let firstPage = document.getElementById("firstPage")
 let inputPage = document.getElementById("inputPage")
 let spiderPage = document.getElementById("spiderPage")
 let diedPage = document.getElementById("diedScreen")
+
+let scenarioSpider = document.getElementById("scenario")
 let userstatus = 0
-let levelCount = 0
+let levelCount = 1
 let gameCount = 0
 
 
@@ -55,7 +57,7 @@ function checkStatus(points, level){
     }
     else{
         gameCount++
-        nextScenario()
+        updateInfo(points, gameCount)
     }
     if(level > levelCount){
         levelCount++
@@ -67,6 +69,29 @@ function checkStatus(points, level){
 //next scenario
 function nextScenario(){
     console.log(userstatus)
+    if(gameCount == 1){
+        scenarioSpider.innerHTML = ` `
+    }
+}
+
+//update info
+function updateInfo(points, gameCount){
+    console.log("points: " + points)
+    if(gameCount == 1){
+        if(points == -5){
+            scenarioSpider.innerHTML = `
+                <span>Great, you made it. The spider hesitates for a moment,</span>
+                <span>then silently withdraws into the shadows above. You don't</span>
+                <span>wait for it to change its mind. Keeping your breath steady</span>
+                <span>you turn and slip through a narrow gap in the rock. The</span>
+                <span>passage tightens around you, rough stone scraping against</span>
+                <span>your arms as you push forward. The air shifts—warmer, heavier</span>
+                <span>laced with something stale. When you finally emerge, the silence</span>
+                <span>is suffocating.</span>`
+            document.getElementById("question").innerHTML = `<p onclick(${nextScenario(gameCount, userstatus)})>Continue...</p>`
+            document.getElementById("options1").innerHTML = " "
+        }
+    }
 }
 
 //ending:

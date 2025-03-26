@@ -9,6 +9,9 @@
 <body>
     <div id="flickerScreen"></div>
 
+    <!--------------------------------------
+    ---------------Start Screen-------------
+    ---------------------------------------->
     <div id="firstPage">
         <p id="title">The Sleeper's Paradox</p>
         <div id="infoButton" onclick="showInfos()">?</div>
@@ -19,6 +22,9 @@
         <div id="startText" onclick="goToInputPage()">Start</div>
     </div>
 
+    <!--------------------------------------
+    ---------------Input Screen-------------
+    ---------------------------------------->
     <div id="inputPage">
         <p id="inputTitle">User Profile</p>
         <div id="inputScreen">
@@ -39,6 +45,9 @@
         </div>
     </div>
 
+    <!--------------------------------------
+    ---------------First Level--------------
+    ---------------------------------------->
     <div id="spiderPage">
         <div id="scenarioBox1">
             <p id="scenario">
@@ -59,12 +68,12 @@
             <br>
             <p id="question">What will you do?</p>
         </div>
-        <div id="options">
+        <div id="options1">
             <div class="option" id="option1" onclick="checkStatus(-5, 1)">
-                Stay still and don't make a sound
+                Take slow steps backwards, trying to be quiet
             </div>
             <div class="option" id="option2" onclick="checkStatus(0, 1)">
-                Take slow steps backwards, trying to be quiet 
+                Stay still and don't make a sound
             </div>
             <div class="option" id="option3" onclick="checkStatus(100, 1)">
                 Turn around and run away as fast as you can
@@ -73,6 +82,9 @@
     </div>
 
 
+    <!--------------------------------------
+    ---------------Died Screen--------------
+    ---------------------------------------->
     <div id="diedScreen">
         <div id="diedText">
             <p id="diedHeader">Unfortunately you died</p>
