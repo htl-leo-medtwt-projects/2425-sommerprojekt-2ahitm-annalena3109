@@ -70,7 +70,39 @@ function checkStatus(points, level){
 function nextScenario(){
     console.log(userstatus)
     if(gameCount == 1){
-        scenarioSpider.innerHTML = ` `
+        console.log("onclick scenario worked")
+        document.getElementById("scenarioBox1").innerHTML = `
+            <p id="scenario">
+                <span>You squeeze through the narrow gap in the rock, your</span>
+                <span>breath shaky from the encounter. The cave ahead is</span>
+                <span>eerily silent—too silent. The walls are covered in</span>
+                <span>thick, silken webs, and strands of them hang down</span>
+                <span>like curtains. You take a step forward, and your</span>
+                <span>foot sticks to the ground.You look down. Webbing.</span>
+                <span>Thick, sticky, and coated in dust and old bones. You</span>
+                <span>suddenly hear faint clicking noises from behind you</span>
+                <span>—the spider is coming back. You need to move, but</span>
+                <span>in front of you, the path splits into three: 1) A</span>
+                <span>dark, smooth path leading downward, with no webs in</span>
+                <span>2) A rocky ledge along the cave wall  with </span>
+                <span>only a few webs on it and 3) A tunnel lined with</span>
+                <span>hanging webs, swaying slightly as if something</span>
+                <span>had just passed through</span>
+            </p>
+            <p id="question")>Which path do you choose?</p>
+            `
+        document.getElementById("options1").style.display = "grid"
+        document.getElementById("options1").innerHTML = `
+            <div class="option" id="option1" onclick="checkStatus(100, 1)">
+                    Path 1
+                </div>
+                <div class="option" id="option2" onclick="checkStatus(-5, 1)">
+                    Path 2
+                </div>
+                <div class="option" id="option3" onclick="checkStatus(0, 1)">
+                    Path 3
+                </div>
+            </div>`
     }
 }
 
@@ -79,17 +111,40 @@ function updateInfo(points, gameCount){
     console.log("points: " + points)
     if(gameCount == 1){
         if(points == -5){
-            scenarioSpider.innerHTML = `
-                <span>Great, you made it. The spider hesitates for a moment,</span>
-                <span>then silently withdraws into the shadows above. You don't</span>
-                <span>wait for it to change its mind. Keeping your breath steady</span>
-                <span>you turn and slip through a narrow gap in the rock. The</span>
-                <span>passage tightens around you, rough stone scraping against</span>
-                <span>your arms as you push forward. The air shifts—warmer, heavier</span>
-                <span>laced with something stale. When you finally emerge, the silence</span>
-                <span>is suffocating.</span>`
-            document.getElementById("question").innerHTML = `<p onclick(${nextScenario(gameCount, userstatus)})>Continue...</p>`
-            document.getElementById("options1").innerHTML = " "
+            console.log("update info worked")
+            document.getElementById("scenarioBox1").innerHTML = `
+                <p id="scenario">
+                    <span>Great, you made it. The spider hesitates for a</span>
+                    <span>moment, then silently withdraws into the shadows</span>
+                    <span>above. You don't wait for it to change its mind.</span>
+                    <span>Keeping your breath steady, you turn and slip through </span>
+                    <span>a narrow gap in the rock. The passage tightens </span>
+                    <span>around you, rough stone scraping against your arms</span>
+                    <span>as you push forward. The air shifts—warmer, heavier</span>
+                    <span>laced with something stale. When you finally emerge,</span>
+                    <span>the silence is suffocating.</span>
+                </p>
+                <p id="question" onclick="nextScenario(${gameCount, userstatus})">Continue...</p>
+                `
+            document.getElementById("options1").style.display = "none"
+        }
+        if(points == 0){
+            console.log("update info worked")
+            document.getElementById("scenarioBox1").innerHTML = `
+                <p id="scenario">
+                    <span>Whew, you made it. The spider didn't see you—or at</span>
+                    <span>least, it didn't care enough to attack. You stay</span>
+                    <span>frozen for a moment longer, just to be sure, before</span>
+                    <span>cautiously moving forward. You walk and slip through</span>
+                    <span>a narrow gap in the rock. The passage tightens</span>
+                    <span>around you, rough stone scraping against your arms</span>
+                    <span>as you push forward. The air shifts—warmer, heavier</span>
+                    <span>laced with something stale. When you finally emerge,</span>
+                    <span>the silence is suffocating.</span>
+                </p>
+                <p id="question" onclick="nextScenario(${gameCount, userstatus})">Continue...</p>
+                `
+            document.getElementById("options1").style.display = "none"
         }
     }
 }
