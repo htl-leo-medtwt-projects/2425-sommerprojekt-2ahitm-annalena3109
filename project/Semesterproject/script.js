@@ -11,6 +11,11 @@ let userstatus = 0
 let levelCount = 1
 let gameCount = 0
 
+let audioWIWO = document.getElementById("wiwo")
+
+audioWIWO.play()
+
+
 
 //info button start pages
 function showInfos(){
@@ -84,10 +89,10 @@ function nextScenario(){
                 <span>—the spider is coming back. You need to move, but</span>
                 <span>in front of you, the path splits into three: 1) A</span>
                 <span>dark, smooth path leading downward, with no webs in</span>
-                <span>2) A rocky ledge along the cave wall  with </span>
-                <span>only a few webs on it and 3) A tunnel lined with</span>
-                <span>hanging webs, swaying slightly as if something</span>
-                <span>had just passed through</span>
+                <span>2) A rocky ledge along the cave wall with only a few </span>
+                <span>webs on it and 3) A tunnel lined with hanging webs,</span>
+                <span>swaying slightly as if something had just passed </span>
+                <span>through</span>
             </p>
             <p id="question")>Which path do you choose?</p>
             `
