@@ -11,10 +11,22 @@ let userstatus = 0
 let levelCount = 1
 let gameCount = 0
 
+
+let currentSound;
 let audioWIWO = document.getElementById("wiwo")
 
-audioWIWO.play()
 
+currentSound = audioWIWO
+currentSound.play()
+
+let slider = document.getElementById("myRange")
+let sliderValue = slider.value
+
+slider.addEventListener("input", function () {
+    sliderValue = this.value
+    console.log("Slider value:", sliderValue)
+    currentSound.volume = sliderValue / 100
+})
 
 
 //info button start pages
@@ -30,12 +42,17 @@ function closeInfos(){
 }
 
 
+console.log(document.getElementById("myRange").value)
+let myRange
 //switch side functions:
 function goToInputPage(){
     firstPage.style.display = "none"
     body.style.backgroundImage = "url(img/inputBG.jpg)"
     inputPage.style.display = "block"
+    myRange = document.getElementById("myRange").value
 }
+
+let isOnInputPage = true
 
 
 //save inputs and start:
@@ -46,6 +63,7 @@ function saveAndStart(){
         spiderPage.style.display = "block"
         username = document.getElementById("nameInput").value
         document.getElementById("nameInput").value = ""
+        isOnInputPage = false
     }
     else{
         alert("Type a name")
@@ -117,21 +135,23 @@ function nextScenario(){
         console.log("onclick scenario worked")
         document.getElementById("scenarioBox1").innerHTML = `
             <p id="scenario">
-                <span>The tunnel ends abruptly, opening into a narrow shaft</span>
-                <span>leading upward. Above, you see a faint glimmer—the exit.</span>
-                <span>It's close. You're almost there. But as you approach, </span>
-                <span>you notice the walls—slick, sharp-edged, and covered </span>
-                <span>in cracks. The only way to reach the exit is by climbing. </span>
-                <span>You begin your ascent, trying to ignore the unnerving </span>
-                <span>silence around you. The rocks are jagged, crumbling under </span>
-                <span>your hands. The air feels heavier the higher you climb. </span>
-                <span>Then—you hear it. A soft skittering behind you. Very close. </span>
-                <span>You know it. You feel it. The spider is just below you, waiting.</span>
-                <span> Its legs move so quietly, you barely hear it, but you can feel </span>
-                <span>its presence as it moves up the wall behind you. It's not </span>
-                <span>attacking—yet. But you know it's there. Every time you make a move,</span>
-                <span> it seems to follow, creeping closer. The exit is within reach, </span>
-                <span>but so is the spider.</span>
+                <span>The tunnel ends abruptly, opening into a narrow</span>
+                <span>shaft leading upward. Above, you see a faint glimmer</span>
+                <span>—the exit. It's close. You're almost there. But as</span>
+                <span>you approach, you notice the walls—slick, sharp-</span>
+                <span>edged, and covered in cracks. The only way to reach</span>
+                <span>the exit is by climbing. You begin your ascent,</span>
+                <span>trying to ignore the unnerving silence around you.</span>
+                <span>The rocks are jagged, crumbling under your hands.</span>
+                <span> The air feels heavier the higher you climb. Then—</span>
+                <span>you hear it. A soft skittering behind you. Very</span>
+                <span>close. You know it. You feel it. The spider is just</span>
+                <span>below you, waiting. Its legs move so quietly, you</span>
+                <span>barely hear it, but you can feel its presence as it </span>
+                <span>moves up the wall behind you. It's not attacking—</span>
+                <span>yet. But you know it's there. Every time you make a</span>
+                <span>move, it seems to follow, creeping closer. The exit</span>
+                <span>is within reach, but so is the spider.</span>
             </p>
             <p id="question">What do you do?</p>
             `
@@ -153,7 +173,10 @@ function nextScenario(){
 //update info
 function updateInfo(points, gameCount){
     console.log("points: " + points)
+
+    //spider scenario in-betweens:
     if(gameCount == 1){
+        //first; best option
         if(points == -5){
             console.log("update info worked")
             document.getElementById("scenarioBox1").innerHTML = `
@@ -172,6 +195,7 @@ function updateInfo(points, gameCount){
                 `
             document.getElementById("options1").style.display = "none"
         }
+        //first; okay-option
         if(points == 0){
             console.log("update info worked")
             document.getElementById("scenarioBox1").innerHTML = `
@@ -192,39 +216,88 @@ function updateInfo(points, gameCount){
         }
     }
 
-    //EDITEDITEDITE EZIUhewuwe EDIT 
     if(gameCount == 2){
+        //second; best option
         if(points == -5){
             console.log("update info worked")
             document.getElementById("scenarioBox1").innerHTML = `
                 <p id="scenario">
-                    <span>Great, you made it. The spider hesitates for a</span>
-                    <span>moment, then silently withdraws into the shadows</span>
-                    <span>above. You don't wait for it to change its mind.</span>
-                    <span>Keeping your breath steady, you turn and slip</span>
-                    <span>through a narrow gap in the rock. The passage</span>
-                    <span>tightens around you, rough stone scraping against</span>
-                    <span>your arms as you push forward. The air shifts—</span>
-                    <span>warmer, heavier laced with something stale. When you</span>
-                    <span>finally emerge, the silence is suffocating.</span>
+                    <span>You take a steady breath and step onto the rocky</span>
+                    <span>ledge, keeping close to the wall. Every movement has</span>
+                    <span>to be careful—one wrong step, and you could slip.</span>
+                    <span>The stone beneath your feet is uneven, crumbling in</span>
+                    <span>places, but at least it's free of webs. You move </span>
+                    <span>slowly, avoiding loose rocks, ignoring the faint </span>
+                    <span>clicking sound from behind you. Then, the sound</span>
+                    <span>stops. For a brief, terrifying moment, silence fills</span>
+                    <span>the cave. You don't dare look back. You just keep</span>
+                    <span>moving.</span>
                 </p>
                 <p id="question" onclick="nextScenario(${gameCount, userstatus})">Continue...</p>
                 `
             document.getElementById("options1").style.display = "none"
         }
+        //second; okay-option
         if(points == 0){
             console.log("update info worked")
             document.getElementById("scenarioBox1").innerHTML = `
                 <p id="scenario">
-                    <span>Whew, you made it. The spider didn't see you—or at</span>
-                    <span>least, it didn't care enough to attack. You stay</span>
-                    <span>frozen for a moment longer, just to be sure, before</span>
-                    <span>cautiously moving forward. You walk and slip through</span>
-                    <span>a narrow gap in the rock. The passage tightens</span>
-                    <span>around you, rough stone scraping against your arms</span>
-                    <span>as you push forward. The air shifts—warmer, heavier</span>
-                    <span>laced with something stale. When you finally emerge,</span>
-                    <span>the silence is suffocating.</span>
+                    <span>You push forward, stepping into the web-lined</span>
+                    <span>tunnel. The air is thick with dust, and the strands</span>
+                    <span>of silk sway as if something has just passed</span>
+                    <span>through. The further you go, the more the webs cling</span>
+                    <span>to you. They wrap around your arms, your legs, your</span>
+                    <span>shoulders—thin at first, then thicker, stickier.</span>
+                    <span>You try not to panic. Then—a tug. For a split </span>
+                    <span>second, you can't move. The webbing sticks to your foot,</span>
+                    <span>holding you in place. Your heartbeat pounds</span>
+                    <span>in your ears as you yank yourself free, stumbling</span>
+                    <span>forward. Something rustles in the distance. You</span>
+                    <span>don't wait to find out what it is, just run.</span>
+                </p>
+                <p id="question" onclick="nextScenario(${gameCount, userstatus})">Continue...</p>
+                `
+            document.getElementById("options1").style.display = "none"
+        }
+    }
+    if(gameCount == 3){
+        //third; best option
+        if(points == -5){
+            console.log("update info worked")
+            document.getElementById("scenarioBox1").innerHTML = `
+                <p id="scenario">
+                    <span>You take a steady breath and step onto the rocky</span>
+                    <span>ledge, keeping close to the wall. Every movement has</span>
+                    <span>to be careful—one wrong step, and you could slip.</span>
+                    <span>The stone beneath your feet is uneven, crumbling in</span>
+                    <span>places, but at least it's free of webs. You move </span>
+                    <span>slowly, avoiding loose rocks, ignoring the faint </span>
+                    <span>clicking sound from behind you. Then, the sound</span>
+                    <span>stops. For a brief, terrifying moment, silence fills</span>
+                    <span>the cave. You don't dare look back. You just keep</span>
+                    <span>moving.</span>
+                </p>
+                <p id="question" onclick="nextScenario(${gameCount, userstatus})">Continue...</p>
+                `
+            document.getElementById("options1").style.display = "none"
+        }
+        //third; okay-option
+        if(points == 0){
+            console.log("update info worked")
+            document.getElementById("scenarioBox1").innerHTML = `
+                <p id="scenario">
+                    <span>You push forward, stepping into the web-lined</span>
+                    <span>tunnel. The air is thick with dust, and the strands</span>
+                    <span>of silk sway as if something has just passed</span>
+                    <span>through. The further you go, the more the webs cling</span>
+                    <span>to you. They wrap around your arms, your legs, your</span>
+                    <span>shoulders—thin at first, then thicker, stickier.</span>
+                    <span>You try not to panic. Then—a tug. For a split </span>
+                    <span>second, you can't move. The webbing sticks to your foot,</span>
+                    <span>holding you in place. Your heartbeat pounds</span>
+                    <span>in your ears as you yank yourself free, stumbling</span>
+                    <span>forward. Something rustles in the distance. You</span>
+                    <span>don't wait to find out what it is, just run.</span>
                 </p>
                 <p id="question" onclick="nextScenario(${gameCount, userstatus})">Continue...</p>
                 `
