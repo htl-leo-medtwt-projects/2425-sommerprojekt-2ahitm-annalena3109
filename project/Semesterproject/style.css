@@ -6,6 +6,10 @@
     font-family: font2;
     src: url(font/1942.ttf);
 }
+@font-face {
+    font-family: font3;
+    src: url(font/Blacksword.otf);
+}
 body{
     overflow: hidden;
     background-image: url(img/startBG.jpg);
@@ -159,6 +163,7 @@ body{
     font-size: 10vh;
     margin-left: 30%;
 }
+
 /*mutebutton - logic from W3Schools, styling from me*/
 .switch {
     position: absolute;
@@ -366,4 +371,50 @@ input:checked + .slide:before {
 #tryAgain{
     margin-top: -15vh;
     margin-left: 70%;
+}
+
+/*Leaderboard page styling*/
+#leaderboardScreen{
+    display: none;
+}
+#drainColor{
+    background-color: #ffffff7b;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+#leaderboardHeader{
+    font-family: font3;
+    color: black;
+    font-size: 17vh;
+    text-align: center;
+    text-shadow: 15px 2px white;
+    position: absolute;
+    z-index: 3000;
+    margin-left: 23%;
+    margin-top: 2vh;
+}
+#leaderBoardList{
+    background-color: #4747477c;
+    border-radius: 25px;
+    padding: 2%;
+    text-align: center;
+    position: absolute;
+    margin-top: 30vh;
+    margin-left: 23%;
+    width: 50%;
+    font-family: font3;
+}
+#backToStart{
+    font-family: font3;
+    font-size: 5vh;
+    color: white;
+    position: fixed;
+    margin-left: 80%;
+    margin-top: 80vh;
+}
+#backToStart:hover{
+    text-decoration: underline;
 }

@@ -5,28 +5,46 @@ let firstPage = document.getElementById("firstPage")
 let inputPage = document.getElementById("inputPage")
 let spiderPage = document.getElementById("spiderPage")
 let diedPage = document.getElementById("diedScreen")
+let leaderboardPage = document.getElementById("leaderboardScreen")
 
 let scenarioSpider = document.getElementById("scenario")
 let userstatus = 0
 let levelCount = 1
 let gameCount = 0
 
-
 let currentSound;
 let audioWIWO = document.getElementById("wiwo")
 
 
+//audio controls:
 currentSound = audioWIWO
+currentSound.volume = 0.5
 currentSound.play()
 
 let slider = document.getElementById("myRange")
-let sliderValue = slider.value
+let muteToggle = document.getElementById("muteToggle")
+
+let lastVolume = currentSound.volume
 
 slider.addEventListener("input", function () {
-    sliderValue = this.value
-    console.log("Slider value:", sliderValue)
-    currentSound.volume = sliderValue / 100
+    if (!muteToggle.checked) {
+        let sliderValue = this.value
+        console.log("Slider value:", sliderValue)
+        currentSound.volume = sliderValue / 100
+        lastVolume = currentSound.volume
+    } else {
+        console.log("Muted — slider inactive")
+    }
 })
+
+muteToggle.addEventListener("change", function () {
+    if (this.checked) {
+        currentSound.volume = 0
+    } else {
+        currentSound.volume = lastVolume
+    }
+})
+
 
 
 //info button start pages
@@ -42,8 +60,6 @@ function closeInfos(){
 }
 
 
-console.log(document.getElementById("myRange").value)
-let myRange
 //switch side functions:
 function goToInputPage(){
     firstPage.style.display = "none"
@@ -51,8 +67,6 @@ function goToInputPage(){
     inputPage.style.display = "block"
     myRange = document.getElementById("myRange").value
 }
-
-let isOnInputPage = true
 
 
 //save inputs and start:
@@ -63,7 +77,6 @@ function saveAndStart(){
         spiderPage.style.display = "block"
         username = document.getElementById("nameInput").value
         document.getElementById("nameInput").value = ""
-        isOnInputPage = false
     }
     else{
         alert("Type a name")
@@ -167,6 +180,30 @@ function nextScenario(){
                     Drop a rock behind you to distract the spider
                 </div>
             </div>`
+    }
+    //spiderlevel last scenario - switch to next
+    if(gameCount === 3){
+        document.getElementById("scenarioBox1").innerHTML = `
+                <p id="scenario">
+                    <span>With each step, the air around you grows lighter,</span>
+                    <span>and the oppressive weight of the cave begins to</span>
+                    <span>lift. The darkness recedes, and your eyes adjust to</span>
+                    <span>the faint glow ahead.You take another careful step</span>
+                    <span>forward, the tunnel now widening into a larger</span>
+                    <span>space. The stone here is smoother, almost polished,</span>
+                    <span>and the air feels fresher, cooler. The silence is</span>
+                    <span>profound, broken only by the soft echo of your own</span>
+                    <span>breathing. You pause and look around, taking in the</span>
+                    <span>strange, wide chamber. Something feels different.</span>
+                    <span>You take another step, and that's when you feel it—</span>
+                    <span>the water. Your eyes drop to the ground, and you see</span>
+                    <span>it now, creeping around your feet—thin at first,</span>
+                    <span>just a small trickle, but slowly rising, inch by</span>
+                    <span>inch.</span>
+                </p>
+                <p id="question" onclick="died()">Continue...</p>
+                `//EDIT ONCLICK
+            document.getElementById("options1").style.display = "none"
     }
 }
 
@@ -314,17 +351,55 @@ function died(){
     diedPage.style.display = "block"
     spiderPage.style.display = "none"
 }
+function showLeaderboard(){
+    body.style.backgroundImage = "url(img/wakeupBG.jpg)"
+    diedPage.style.display = "none"
+    leaderboardPage.style.display = "block"
+    document.getElementById("flickerScreen").style.backgroundColor = "rgba(255, 255, 255, 0.12)"
+
+    let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || []
+    
+    console.log("Leaderboard: ", leaderboard)
+
+    let list = document.getElementById("scoreList")
+    list.innerHTML = "" 
+
+    leaderboard.forEach((entry) => {
+        let li = document.createElement("li")
+        li.textContent = `${entry.score} - ${entry.name}`
+        list.appendChild(li)
+    })
+}
 
 //try again:
 function tryAgain(){
     diedPage.style.display = "none"
-    firstPage.style.display = "block"  
+    leaderboardPage.style.display = "none" 
+    firstPage.style.display = "block" 
     userstatus = 0
     levelCount = 0
     gameCount = 0
     username = " "
     body.style.backgroundImage = "url(img/startBG.jpg)"
+    document.getElementById("flickerScreen").style.backgroundColor = "rgba(0, 0, 0, 0.511)"
     console.log("userstatus: " + userstatus + ", levelcount: " + levelCount + ", gamecount: " + gameCount + ", username: " + username)
+}
+
+
+//LocalStorage/save to leaderboard:
+document.getElementById("saveLeaderboard").addEventListener("click", () => {
+    saveToLeaderBoard(username, gameCount)
+})
+
+
+let leaderBoard
+function saveToLeaderBoard(name, gamesScore){
+    leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [] // Get existing leaderboard or empty array
+    leaderboard.push({ name: name, score: gamesScore })
+    leaderboard.sort((a, b) => b.score - a.score) // Sort by highest score
+    if (leaderboard.length > 10) leaderboard = leaderboard.slice(0, 10) // Keep top 10 scores
+    localStorage.setItem("leaderboard", JSON.stringify(leaderboard)) // Save updated leaderboard
+    showLeaderboard()
 }
 
 //other:

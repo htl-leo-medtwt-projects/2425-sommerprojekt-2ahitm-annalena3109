@@ -36,7 +36,7 @@
             <br>
             Mute: 
             <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" id="muteToggle">
                 <span class="slide round"></span>
             </label>
             <br>
@@ -94,9 +94,21 @@
             <p id="diedText1">Do you want to save your score to the leaderboard or play again?</p>
         </div>
         <div id="buttons">
-            <div id="saveLeaderboard" onclick="saveToLeaderboard()">Leaderboard</div>
+            <div id="saveLeaderboard">Leaderboard</div>
             <div id="tryAgain" onclick="tryAgain()">Try Again</div>
         </div>
+    </div>
+
+    <!--------------------------------------
+    ---------------Leaderboard--------------
+    ---------------------------------------->
+    <div id="leaderboardScreen">
+        <div id="drainColor"></div>
+        <p id="leaderboardHeader">Leaderboard</p>
+        <div id="leaderBoardList">
+            <ol id="scoreList"></ol>
+        </div>
+        <div id="backToStart" onclick="tryAgain()">Back to Start</div>
     </div>
 </body>
 </html>
