@@ -201,7 +201,7 @@ function nextScenario(){
                     <span>just a small trickle, but slowly rising, inch by</span>
                     <span>inch.</span>
                 </p>
-                <p id="question" onclick="died()">Continue...</p>
+                <p id="question" onclick="updateInfo(0, 4)">Continue...</p>
                 `//EDIT ONCLICK
             document.getElementById("options1").style.display = "none"
     }
@@ -301,6 +301,7 @@ function updateInfo(points, gameCount){
         //third; best option
         if(points == -5){
             console.log("update info worked")
+            //UPDATING NEEDED!!!!!!
             document.getElementById("scenarioBox1").innerHTML = `
                 <p id="scenario">
                     <span>You take a steady breath and step onto the rocky</span>
@@ -340,6 +341,9 @@ function updateInfo(points, gameCount){
                 `
             document.getElementById("options1").style.display = "none"
         }
+    }
+    if(gameCount == 4){
+        document.getElementById("drowningScreen").style.display = "block"
     }
 }
 
@@ -401,5 +405,23 @@ function saveToLeaderBoard(name, gamesScore){
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard)) // Save updated leaderboard
     showLeaderboard()
 }
+
+//Sprite game / drowning page:
+let GAME_SCREEN = {
+    surface: document.getElementById('surface'),
+    surfaceScale: '80%',
+    debug_output: document.getElementById('debug_output')
+}
+
+// Scale the surface to xx% of the screen width
+surface.style.transform = `scale(${parseFloat(GAME_SCREEN.surfaceScale)/100 * (window.innerWidth / surface.clientWidth)})`;
+
+let GAME_CONFIG = {
+    gameSpeed: 8, // game loop refresh rate (pictures per second)
+    characterSpeed: 60 // move offset in PX
+}
+
+
+
 
 //other:

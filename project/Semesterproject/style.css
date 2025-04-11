@@ -418,3 +418,32 @@ input:checked + .slide:before {
 #backToStart:hover{
     text-decoration: underline;
 }
+
+
+/*Sprite game styling*/
+#drowningScreen{
+    display: none;
+}
+#player{
+    display: none;
+    position: absolute;
+    z-index: 5;
+    overflow: hidden;
+    width: 90px;
+    height: 150px;
+}
+#surface{
+    position: absolute;
+    width: 100vw;
+    height: 230vh;
+    transform-origin: top;
+    z-index: 100;
+}
+#spriteImg{
+    height: 90px;
+    position: relative;
+}
+#video{
+    margin-top: 13vh;
+    margin-left: 23%;
+}

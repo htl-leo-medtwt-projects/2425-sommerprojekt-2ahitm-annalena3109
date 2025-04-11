@@ -5,6 +5,9 @@
     <title>TSP</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="keyevents.js" defer></script>
+    <script src="player.js" defer></script>
+    <script src="colliding.js" defer></script>
 </head>
 <body>
     <div id="flickerScreen"></div>
@@ -80,6 +83,21 @@
             </div>
             <div class="option" id="option3" onclick="checkStatus(100, 1)">
                 Turn around and run away as fast as you can
+            </div>
+        </div>
+    </div>
+
+    
+    <!--------------------------------------
+    ---------------Sprite Game--------------
+    ---------------------------------------->
+    <div id="drowningScreen">
+        <div id="surface">
+            <video width="auto" height="700vh" id="video" autoplay>
+                <source src="sprite/spriteBG.mp4" type="video/mp4">
+            </video> 
+            <div id="player">
+                <img id="spriteImg" src="img/sprite_sheet.png" alt="sprite_sheet">
             </div>
         </div>
     </div>
