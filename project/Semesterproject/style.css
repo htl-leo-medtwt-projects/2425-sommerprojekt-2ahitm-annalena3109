@@ -425,12 +425,13 @@ input:checked + .slide:before {
     display: none;
 }
 #player{
-    display: none;
     position: absolute;
     z-index: 5;
     overflow: hidden;
     width: 90px;
     height: 150px;
+    margin-left: 550px;
+    margin-top: 540px;
 }
 #surface{
     position: absolute;
@@ -442,8 +443,17 @@ input:checked + .slide:before {
 #spriteImg{
     height: 90px;
     position: relative;
+    z-index: 8000;
 }
 #video{
-    margin-top: 13vh;
-    margin-left: 23%;
+    margin-top: 15vh;
+    margin-left: 29%;
+    height: 70vh;
+}
+
+
+#skip{
+    position: absolute;
+    color: white;
+    z-index: 8000;
 }

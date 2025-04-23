@@ -16,6 +16,10 @@ let currentSound;
 let audioWIWO = document.getElementById("wiwo")
 
 
+function skip(){
+    updateInfo(0, 4)
+}
+
 //audio controls:
 currentSound = audioWIWO
 currentSound.volume = 0.5
@@ -308,7 +312,7 @@ function updateInfo(points, gameCount){
                     <span>ledge, keeping close to the wall. Every movement has</span>
                     <span>to be careful—one wrong step, and you could slip.</span>
                     <span>The stone beneath your feet is uneven, crumbling in</span>
-                    <span>places, but at least it's free of webs. You move </span>
+                    <span>places, but                                                                                                                                                                                                                                                                  at least it's free of webs. You move </span>
                     <span>slowly, avoiding loose rocks, ignoring the faint </span>
                     <span>clicking sound from behind you. Then, the sound</span>
                     <span>stops. For a brief, terrifying moment, silence fills</span>
@@ -344,6 +348,12 @@ function updateInfo(points, gameCount){
     }
     if(gameCount == 4){
         document.getElementById("drowningScreen").style.display = "block"
+        document.getElementById("spiderPage").style.display = "none"
+        document.body.style.backgroundImage = "url(img/waterBG.jpg)"
+        document.getElementById("surface").innerHTML += `
+            <video width="auto" height="700vh" id="video" autoplay>
+                <source src="sprite/spriteBG.mp4" type="video/mp4">
+            </video>`
     }
 }
 
