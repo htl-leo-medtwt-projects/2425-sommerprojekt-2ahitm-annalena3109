@@ -5,10 +5,13 @@
 let PLAYER = {
     box: document.getElementById('player'),
     spriteImg: document.getElementById('spriteImg'),
-    spriteImgNumber: 0, // current animation frame of sprite image
-    spriteDirection: 1,
-    coinCount: 0
+    spriteImgNumber: 0,
+    spriteDirection: 1
 }
+
+PLAYER.box.style.left = PLAYER.box.style.left || '0px'
+PLAYER.box.style.top = PLAYER.box.style.top || '0px'
+
 
 
 
@@ -21,21 +24,17 @@ let PLAYER = {
  * @param {number} dr - player heading direction (-1: look left || 1: look right)
  */
 
-let colliders = document.querySelectorAll(".collider");
 function movePlayer(dx, dy, dr) {
-    // save original position
     let originalX = parseFloat(PLAYER.box.style.left);
     let originalY = parseFloat(PLAYER.box.style.top);
 
-    // calculate new position
+
     PLAYER.box.style.left = (originalX + dx) + 'px';
     PLAYER.box.style.top = (originalY + dy) + 'px';
 
-
-    // update sprite direction if needed
-    if (dr != 0 && dr != Player.spriteDirection) {
-    PLAYER.spriteDirection = dr;
-    PLAYER.box.style.transform = scaleX(`${dr}`);
+    if (dr != 0 && dr != PLAYER.spriteDirection) {
+        PLAYER.spriteDirection = dr;
+        PLAYER.box.style.transform = `scaleX(${dr})`;
     }
 }
 
@@ -44,14 +43,27 @@ function movePlayer(dx, dy, dr) {
  * ANIMATE PLAYER
  * **********************************/
 function animatePlayer() {
-    if (PLAYER.spriteImgNumber < 1) { // switch to next sprite position
+    console.log("animate player works")
+    if (PLAYER.spriteImgNumber < 6) { // switch to next sprite position
         PLAYER.spriteImgNumber++;
         let x = parseFloat(PLAYER.spriteImg.style.right);
-        x += 89.6; // ANPASSEN!
+        x += 50; // ANPASSEN!
+        console.log(PLAYER.spriteImgNumber)
         PLAYER.spriteImg.style.right = x + "px";
     } else { // animation loop finished: back to start animation
         PLAYER.spriteImg.style.right = "0px";
         PLAYER.spriteImgNumber = 0;
     }
 }
+
+/*function animatePlayer() {
+    if (PLAYER.spriteImgNumber < 5) {
+      PLAYER.spriteImgNumber++
+    } else {
+      PLAYER.spriteImgNumber = 0
+    }
+  
+    let frameWidth = 85 // set this to your actual frame width in pixels
+    PLAYER.spriteImg.style.backgroundPosition = `-${PLAYER.spriteImgNumber * frameWidth}px 0`
+  }*/
 

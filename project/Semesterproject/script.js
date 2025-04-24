@@ -354,6 +354,8 @@ function updateInfo(points, gameCount){
             <video width="auto" height="700vh" id="video" autoplay>
                 <source src="sprite/spriteBG.mp4" type="video/mp4">
             </video>`
+        PLAYER.box = document.getElementById("player")
+        gameLoop()
     }
 }
 
@@ -424,14 +426,35 @@ let GAME_SCREEN = {
 }
 
 // Scale the surface to xx% of the screen width
-surface.style.transform = `scale(${parseFloat(GAME_SCREEN.surfaceScale)/100 * (window.innerWidth / surface.clientWidth)})`;
+GAME_SCREEN.surface.style.transform = `scale(${parseFloat(GAME_SCREEN.surfaceScale)/100 * (window.innerWidth / surface.clientWidth)})`;
+
 
 let GAME_CONFIG = {
-    gameSpeed: 8, // game loop refresh rate (pictures per second)
-    characterSpeed: 60 // move offset in PX
+    gameSpeed: 15, // game loop refresh rate (pictures per second)
+    characterSpeed: 1 // move offset in PX
 }
 
+function gameLoop(){
+    console.log("loop")
+    if (KEY_EVENTS.leftArrow) {
+        movePlayer((-1) * GAME_CONFIG.characterSpeed, 0, -1);
+        animatePlayer();
+    }
+    if (KEY_EVENTS.rightArrow) {
+        movePlayer(GAME_CONFIG.characterSpeed, 0, 1);
+        animatePlayer();
+    }
+    if (KEY_EVENTS.upArrow) {
+        movePlayer(0, (-1) * GAME_CONFIG.characterSpeed, 0);
+        animatePlayer();
+    }
+    if (KEY_EVENTS.downArrow) {
+        movePlayer(0, GAME_CONFIG.characterSpeed, 0);
+        animatePlayer();
+    }
+    setTimeout(gameLoop, 1000 / GAME_CONFIG.gameSpeed);
 
+}
 
 
 //other:
