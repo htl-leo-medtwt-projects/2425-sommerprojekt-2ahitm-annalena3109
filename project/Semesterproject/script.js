@@ -355,6 +355,7 @@ function updateInfo(points, gameCount){
                 <source src="sprite/spriteBG.mp4" type="video/mp4">
             </video>`
         PLAYER.box = document.getElementById("player")
+        PLAYER.spriteImg = document.getElementById("spriteImg")
         gameLoop()
     }
 }
@@ -431,7 +432,7 @@ GAME_SCREEN.surface.style.transform = `scale(${parseFloat(GAME_SCREEN.surfaceSca
 
 let GAME_CONFIG = {
     gameSpeed: 15, // game loop refresh rate (pictures per second)
-    characterSpeed: 1 // move offset in PX
+    characterSpeed: 0.8 // move offset in PX
 }
 
 function gameLoop(){

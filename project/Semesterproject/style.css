@@ -428,8 +428,8 @@ input:checked + .slide:before {
     position: absolute;
     z-index: 5;
     overflow: hidden;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     margin-left: 550px;
     margin-top: 540px;
 }
@@ -441,7 +441,7 @@ input:checked + .slide:before {
     z-index: 100;
 }
 #spriteImg{
-    height: 70px;
+    height: 60px;
     position: relative;
     z-index: 8000;
 }
@@ -457,7 +457,3 @@ input:checked + .slide:before {
     color: white;
     z-index: 8000;
 }
-#player {
-    background-color: red;
-  }
-  

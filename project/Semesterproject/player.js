@@ -44,10 +44,10 @@ function movePlayer(dx, dy, dr) {
  * **********************************/
 function animatePlayer() {
     console.log("animate player works")
-    if (PLAYER.spriteImgNumber < 6) { // switch to next sprite position
+    if (PLAYER.spriteImgNumber < 5) { // switch to next sprite position
         PLAYER.spriteImgNumber++;
         let x = parseFloat(PLAYER.spriteImg.style.right);
-        x += 50; // ANPASSEN!
+        x += 93; // ANPASSEN!
         console.log(PLAYER.spriteImgNumber)
         PLAYER.spriteImg.style.right = x + "px";
     } else { // animation loop finished: back to start animation
