@@ -450,6 +450,28 @@ input:checked + .slide:before {
     margin-left: 29%;
     height: 70vh;
 }
+#infosD{
+    display: none;
+    background-color: antiquewhite;
+    color: black;
+    text-align: center;
+    font-family: font2;
+    font-size: 2vh;
+    width: 70%;
+    padding: 2%;
+    margin-left: 13%;
+    position: absolute;
+    margin-top: 30vh;
+    z-index: 9000;
+}
+#redBox{
+    background-color: rgba(255, 0, 0, 0.53);
+    width: 53px;
+    height: 30px;
+    position: absolute;
+    margin-top: 15vh;
+    margin-left: 64.4%;
+}
 
 
 #skip{

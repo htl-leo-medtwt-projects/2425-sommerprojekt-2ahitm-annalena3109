@@ -8,6 +8,10 @@
     <script src="player.js" defer></script>
     <script src="colliding.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="scenarios.js" defer></script>
+    <script src="end.js" defer></script>
+    <script src="basic.js" defer></script>
+    <script src="spriteGame.js" defer></script>
 </head>
 <body>
     <div id="flickerScreen"></div>
@@ -93,10 +97,25 @@
     ---------------Sprite Game--------------
     ---------------------------------------->
     <div id="drowningScreen">
+        <div id="infosD">
+            <span>At first, you don't realize how quickly the water is rising.</span><br>
+            <span>It's just a trickle at your feet, barely noticeable.</span><br>
+            <span>But then—it's higher.</span><br>
+            <span>The water creeps up your boots, cold and unrelenting.</span><br>
+            <span>The quiet of the chamber is broken only by the faint</span><br>
+            <span>sound of it lapping against stone.</span><br>
+            <span>The exit still isn't clear, and the water continues to rise,</span><br>
+            <span>pushing you toward a new urgency. Then - a small sunbeam from above.</span><br>
+            <span></span><br>
+            <span>Swim upward, but be careful!</span><br>
+            <span></span><br>
+            <span onclick="showVideo()">Read</span><br>
+        </div>
         <div id="surface">
             <div id="player">
                 <img id="spriteImg" src="img/sprite_sheet.png" alt="sprite_sheet">
             </div>
+            <div id="redBox"></div>
         </div>
     </div>
 
