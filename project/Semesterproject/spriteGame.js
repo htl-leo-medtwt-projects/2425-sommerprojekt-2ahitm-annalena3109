@@ -35,12 +35,12 @@ function gameLoop(){
         animatePlayer();
     }
     setTimeout(gameLoop, 1000 / GAME_CONFIG.gameSpeed);
-
+    handleCollision()
 }
 
 function handleCollision() {
     if (isColliding(PLAYER.box, GAME_SCREEN.redbox, -30)) {
-        died()
+        checkStatus(-5, 2)
     }
 }
 

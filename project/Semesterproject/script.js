@@ -1,3 +1,4 @@
+
 //variables
 let username
 let body = document.body
@@ -23,7 +24,6 @@ currentSound = audioWIWO
 currentSound.volume = 0.5
 currentSound.play()
 
-
 let lastVolume = currentSound.volume
 slider.addEventListener("input", function () {
     if (!muteToggle.checked) {
@@ -45,12 +45,20 @@ muteToggle.addEventListener("change", function () {
 })
 
 
+
 function showVideo(){
     document.getElementById("infosD").style.display = "none"
     document.getElementById("video").play()
     clickedRead = true;
 }
 
+function talkToMan(){
+    console.log("talk to man worked")
+    document.getElementById("infosM").style.display = "none"
+    document.getElementById("chat").style.display = "flex"
+}
+
 function skip(){
     updateInfo(0, 4)
+    document.getElementById("firstPage").style.display = "none"
 }

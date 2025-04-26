@@ -12,6 +12,8 @@
     <script src="end.js" defer></script>
     <script src="basic.js" defer></script>
     <script src="spriteGame.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="typing.js" defer></script>
 </head>
 <body>
     <div id="flickerScreen"></div>
@@ -116,6 +118,20 @@
                 <img id="spriteImg" src="img/sprite_sheet.png" alt="sprite_sheet">
             </div>
             <div id="redBox"></div>
+        </div>
+        <div id="meet">
+            <div id="infosM">
+                <span>With the last of your strength, you push yourself up, hauling your soaked body through the narrow opening.</span><br>
+                <span>Your clothes cling to your skin, heavy and cold, and every movement feels slower than it should.</span><br>
+                <span>You drag yourself onto solid ground, gasping for air, water pooling beneath you. As your eyes adjust, you spot someone slumped against the stone wall ahead</span><br>
+                <span>—a man, barely conscious, his clothes torn and filthy, his face pale and hollow.</span><br>
+                <span>He looks up at you weakly, as if even that small movement costs him everything he has left.</span><br><br>
+                <span id="tth" onclick="talkToMan()">Talk to him</span>
+            </div>
+            <div id="chat">
+                <div id="you">Hello?</div>
+                <div id="he"><span id="textHe"></span></div>
+            </div>
         </div>
     </div>
 

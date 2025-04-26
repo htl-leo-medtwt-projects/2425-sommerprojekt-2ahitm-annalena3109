@@ -255,11 +255,18 @@ function updateInfo(points, gameCount){
         document.body.style.backgroundImage = "url(img/waterBG.jpg)"
         document.getElementById("surface").innerHTML += `
             <video width="auto" height="700vh" id="video">
-                <source src="sprite/spriteBG.mp4" type="video/mp4">
+                <source src="sprite/spriteBG2.mp4" type="video/mp4">
             </video>`
         document.getElementById("infosD").style.display = "block"
         PLAYER.box = document.getElementById("player")
         PLAYER.spriteImg = document.getElementById("spriteImg")
+        GAME_SCREEN.redbox = document.getElementById('redBox')
         gameLoop()
+    }
+    if(gameCount == 5){
+        document.getElementById("surface").style.display = "none"
+        document.getElementById("meet").style.display = "block"
+        document.body.style.backgroundImage = "url(img/waterManBG.jpg)"
+        document.getElementById("infosD").style.display = "none"
     }
 }
