@@ -465,7 +465,7 @@ input:checked + .slide:before {
     z-index: 9000;
 }
 #redBox{
-    background-color: rgba(255, 0, 0, 0.53);
+    /*background-color: rgba(255, 0, 0, 0.53);*/
     width: 53px;
     height: 30px;
     position: absolute;
@@ -516,8 +516,21 @@ input:checked + .slide:before {
 #textHe{
     white-space: pre
 }
-
-
+#continue{
+    font-family: font2;
+    color: white;
+    font-size: 4vh;
+    text-shadow: 0px 0px 10px white;
+    position: absolute;
+    margin-left: 43%;
+    margin-top: 40vh;
+    animation: moveContinue 1.5s infinite alternate ease-in-out;
+    display: none;
+}
+@keyframes moveContinue {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
 
 #skip{
     position: absolute;

@@ -58,7 +58,16 @@ function talkToMan(){
     document.getElementById("chat").style.display = "flex"
 }
 
+function continueThen(){
+    document.body.style.backgroundImage = "url(img/wayBG.jpg)"
+    document.getElementById("chat").style.display = "none"
+    document.getElementById("continue").style.display = "none"
+
+}
+
+
 function skip(){
-    updateInfo(0, 4)
+    //updateInfo(0, 4)
+    continueThen()
     document.getElementById("firstPage").style.display = "none"
 }
