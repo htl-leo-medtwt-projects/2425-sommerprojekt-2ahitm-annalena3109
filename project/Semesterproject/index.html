@@ -25,6 +25,7 @@
     ---------------Start Screen-------------
     ---------------------------------------->
     <div id="firstPage">
+
         <p id="title">The Sleeper's Paradox</p>
         <div id="infoButton" onclick="showInfos()">?</div>
         <div id="infos">
@@ -99,7 +100,7 @@
     ---------------Sprite Game--------------
     ---------------------------------------->
     <div id="drowningScreen">
-        <div id="infosD">
+        <div id="infosD" style="display: none;">
             <span>At first, you don't realize how quickly the water is rising.</span><br>
             <span>It's just a trickle at your feet, barely noticeable.</span><br>
             <span>But then—it's higher.</span><br>
@@ -113,13 +114,13 @@
             <span></span><br>
             <span onclick="showVideo()">Read</span><br>
         </div>
-        <div id="surface">
+        <div id="surface" style="display: none;">
             <div id="player">
                 <img id="spriteImg" src="img/sprite_sheet.png" alt="sprite_sheet">
             </div>
             <div id="redBox"></div>
         </div>
-        <div id="meet">
+        <div id="meet" style="display: none;">
             <div id="infosM">
                 <span>With the last of your strength, you push yourself up, hauling your soaked body through the narrow opening.</span><br>
                 <span>Your clothes cling to your skin, heavy and cold, and every movement feels slower than it should.</span><br>
@@ -133,6 +134,9 @@
                 <div id="he"><span id="textHe"></span></div>
             </div>
             <div onclick="continueThen()" id="continue">Continue</div>
+        </div>
+        <div id="way">
+            <video id="greenVideo" src="img/batsVid.webm" autoplay></video>
         </div>
     </div>
 

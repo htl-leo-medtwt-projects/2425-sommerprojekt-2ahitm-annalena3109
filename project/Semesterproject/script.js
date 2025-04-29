@@ -46,6 +46,8 @@ muteToggle.addEventListener("change", function () {
 
 
 
+
+
 function showVideo(){
     document.getElementById("infosD").style.display = "none"
     document.getElementById("video").play()
@@ -62,8 +64,16 @@ function continueThen(){
     document.body.style.backgroundImage = "url(img/wayBG.jpg)"
     document.getElementById("chat").style.display = "none"
     document.getElementById("continue").style.display = "none"
+    document.getElementById("way").style.display = "block"
+    document.getElementById("drowningScreen").style.display = "block"
 
+    document.getElementById("greenVideo").addEventListener("ended", () =>{
+        document.getElementById("greenVideo").style.display = "none"
+    })
 }
+
+
+
 
 
 function skip(){
