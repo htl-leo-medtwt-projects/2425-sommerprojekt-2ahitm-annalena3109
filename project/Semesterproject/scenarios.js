@@ -251,6 +251,7 @@ function updateInfo(points, gameCount){
     }
     if(gameCount == 4){
         document.getElementById("drowningScreen").style.display = "block"
+        document.getElementById("surface").style.display = "block"
         document.getElementById("spiderPage").style.display = "none"
         document.body.style.backgroundImage = "url(img/waterBG.jpg)"
         document.getElementById("surface").innerHTML += `
