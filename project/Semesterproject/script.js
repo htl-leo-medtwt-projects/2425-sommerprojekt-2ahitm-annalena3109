@@ -18,6 +18,7 @@ let clickedRead = false;
 
 let currentSound;
 let audioWIWO = document.getElementById("wiwo")
+let audioBats = document.getElementById("batsSound")
 
 //audio controls:
 currentSound = audioWIWO
@@ -25,12 +26,16 @@ currentSound.volume = 0.5
 currentSound.play()
 
 let lastVolume = currentSound.volume
+
+let volumeAll = 1
+
 slider.addEventListener("input", function () {
     if (!muteToggle.checked) {
         let sliderValue = this.value
         console.log("Slider value:", sliderValue)
         currentSound.volume = sliderValue / 100
         lastVolume = currentSound.volume
+        volumeAll = sliderValue/100
     } else {
         console.log("Muted — slider inactive")
     }
@@ -39,8 +44,10 @@ slider.addEventListener("input", function () {
 muteToggle.addEventListener("change", function () {
     if (this.checked) {
         currentSound.volume = 0
+        volumeAll = 0
     } else {
         currentSound.volume = lastVolume
+        volumeAll = lastVolume
     }
 })
 
@@ -67,17 +74,27 @@ function continueThen(){
     document.getElementById("way").style.display = "block"
     document.getElementById("drowningScreen").style.display = "block"
 
+    document.getElementById("greenVideo").currentTime = 1
+    document.getElementById("greenVideo").play()
+    audioBats.volume = volumeAll
+    audioBats.play()
+
     document.getElementById("greenVideo").addEventListener("ended", () =>{
         document.getElementById("greenVideo").style.display = "none"
+        batsFlew()
     })
+}
+
+function batsFlew(){
+    document.getElementById("afterBats").style.display = "block"
+    document.getElementById("way").style.display = "none"
+    document.getElementById("infosB").style.display = "block"
+    document.body.style.backgroundImage = "url(img/wayBGpaper.jpg)" 
 }
 
 
 
-
-
 function skip(){
-    //updateInfo(0, 4)
-    continueThen()
+    updateInfo(0, 4)
     document.getElementById("firstPage").style.display = "none"
 }
