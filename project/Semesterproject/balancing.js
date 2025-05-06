@@ -17,6 +17,8 @@ function startBalancing() {
     document.getElementById("game").style.display = "block"
     startTimer2()
     loop = setInterval(gameLoop2, 100)
+    moveDot()
+    moveDotAnimation = requestAnimationFrame(moveDot)
 }
 
 function updateStick() {
@@ -57,33 +59,33 @@ document.addEventListener('keyup', () => {
     tiltDirection = 0
 })
 
-document.addEventListener("DOMContentLoaded", () => {
+function moveDot() {
     const path = document.getElementById("myPath")
     const dot = document.getElementById("dot")
 
     if (path && path instanceof SVGPathElement) {
-        pathLength = path.getTotalLength()
+        const point = path.getPointAtLength(pathLength * position)
+        dot.setAttribute("cx", point.x)
+        dot.setAttribute("cy", point.y)
 
-        const speed = 0.0005
-
-        function moveDotControlLoop() {
-            const point = path.getPointAtLength(pathLength * position)
-            dot.setAttribute("cx", point.x)
-            dot.setAttribute("cy", point.y)
-
-            if (Math.abs(angle) <= 7) {
-                position += speed
-                if (position > 1) position = 1
-            }
-
-            requestAnimationFrame(moveDotControlLoop)
+        if (Math.abs(angle) <= 7) {
+            position += 0.0002
+            if (position > 1) position = 1
         }
 
-        requestAnimationFrame(moveDotControlLoop)
+        moveDotAnimation = requestAnimationFrame(moveDot)
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const path = document.getElementById("myPath")
+    if (path && path instanceof SVGPathElement) {
+        pathLength = path.getTotalLength()
     } else {
         console.error("The path element is not found or not a valid SVG path.")
     }
 })
+
 
 function hasReachedEndOfPath() {
     return position >= 1

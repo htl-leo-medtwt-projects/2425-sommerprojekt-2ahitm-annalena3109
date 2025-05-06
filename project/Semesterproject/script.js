@@ -163,6 +163,7 @@ function startTimer2() {
 }
 
 function afterBalance(){
+    clearInterval(countdown2)
     madeIt2 = true
     document.getElementById("game").style.display = "none"
 }
