@@ -20,6 +20,12 @@ let currentSound;
 let audioWIWO = document.getElementById("wiwo")
 let audioBats = document.getElementById("batsSound")
 
+
+let madeIt = false
+let madeIt2 = false
+let timer = 55
+let timer2 = 50
+
 //audio controls:
 currentSound = audioWIWO
 currentSound.volume = 0.5
@@ -56,6 +62,7 @@ muteToggle.addEventListener("change", function () {
 
 
 function showVideo(){
+    startTimer()
     document.getElementById("infosD").style.display = "none"
     document.getElementById("video").play()
     clickedRead = true;
@@ -124,13 +131,44 @@ function showChosenNote(){
     } else if (noteId === '3') {
         document.getElementById("note").innerHTML = '<img src="img/notes/3.jpg" alt="3">'
     }
+    gameCount = 5
     document.getElementById("note").innerHTML += `<br><div onclick="checkStatus(0, 3)">Read and continue</div>`
 }
 
 
 
+function startTimer() {
+    countdown = setInterval(() => {
+      if (timer > 0) {
+        timer--
+        document.getElementById("timer").textContent = timer
+      } else if (!madeIt) {
+        died()
+        clearInterval(countdown)
+      }
+    }, 1000)
+}
+
+
+function startTimer2() {
+    countdown2 = setInterval(() => {
+      if (timer2 > 0) {
+        timer2--
+        document.getElementById("timer2").textContent = timer2
+      } else if (!madeIt2) {
+        died()
+        clearInterval(countdown2)
+      }
+    }, 1000)
+}
+
+function afterBalance(){
+    madeIt2 = true
+    document.getElementById("game").style.display = "none"
+}
+
+
 function skip(){
-    //updateInfo(0, 4)
-    continueThen()
+    updateInfo(0, 6)
     document.getElementById("firstPage").style.display = "none"
 }

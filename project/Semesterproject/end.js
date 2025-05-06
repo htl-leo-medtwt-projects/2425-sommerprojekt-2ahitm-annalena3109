@@ -5,6 +5,9 @@ function died(){
     body.style.backgroundImage = "url(img/diedBG.jpg)"
     diedPage.style.display = "block"
     spiderPage.style.display = "none"
+
+    document.getElementById("drowningScreen").style.display = "none"
+    document.getElementById("heightsScreen").style.display = "none"
 }
 function showLeaderboard(){
     body.style.backgroundImage = "url(img/wakeupBG.jpg)"

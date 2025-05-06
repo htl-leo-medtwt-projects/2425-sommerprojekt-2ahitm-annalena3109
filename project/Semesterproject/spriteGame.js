@@ -49,6 +49,7 @@ function gameLoop(){
 function handleCollision() {
     if (isColliding(PLAYER.box, GAME_SCREEN.redbox, -30)) {
         checkStatus(-5, 2)
+        madeIt = true
     }
 }
 

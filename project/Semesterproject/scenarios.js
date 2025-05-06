@@ -274,5 +274,8 @@ function updateInfo(points, gameCount){
     if(gameCount == 6){
         document.body.style.backgroundImage = "url(img/heightsBG.jpg)"
         document.getElementById("note").style.display = "none"
+        document.getElementById("drowningScreen").style.display = "none"
+        document.getElementById("heightsScreen").style.display = "block"
+        document.getElementById("infosH").style.display = "block"
     }
 }
