@@ -147,9 +147,21 @@
                 <span>Dropped, maybe left behind. </span><br>
                 <span>The passage stretches on, but something about them holds you there.</span><br>
                 <span></span><br>
-                <span>You can look at one. Which one?</span><br>
+                <span>You can look at one of them.</span><br>
                 <br>
-                <span>Continue...</span>
+                <span onclick="showOptions()">Continue...</span>
+            </div>
+            <div id="chooseDisplay">
+                <div id="infosN">Which one will you choose? Each one of them is meant for an upcoming situation. Remember your hint!</div>
+                <div id="imgs">
+                    <img src="img/notes/paper.png" alt="1" onclick="choosePic(this)">
+                    <img src="img/notes/paper.png" alt="2" onclick="choosePic(this)">
+                    <img src="img/notes/paper.png" alt="3" onclick="choosePic(this)">
+                    <div id="textChoose" onclick="showChosenNote()">Choose</div>
+                </div>
+            </div>
+            <div id="note">
+
             </div>
         </div>
     </div>

@@ -269,5 +269,10 @@ function updateInfo(points, gameCount){
         document.getElementById("meet").style.display = "block"
         document.body.style.backgroundImage = "url(img/waterManBG.jpg)"
         document.getElementById("infosD").style.display = "none"
+        gameRunning = false;
+    }
+    if(gameCount == 6){
+        document.body.style.backgroundImage = "url(img/heightsBG.jpg)"
+        document.getElementById("note").style.display = "none"
     }
 }

@@ -16,27 +16,35 @@ let GAME_CONFIG = {
     characterSpeed: 5 //0.8 // move offset in PX
 }
 
+let gameRunning = true 
+
 function gameLoop(){
+    if (!gameRunning) return 
+
     console.log("loop")
+
     if (KEY_EVENTS.leftArrow && parseFloat(PLAYER.box.style.left) > -190 && clickedRead) {
-        movePlayer((-1) * GAME_CONFIG.characterSpeed, 0, -1);
-        animatePlayer();
+        movePlayer(-GAME_CONFIG.characterSpeed, 0, -1)
+        animatePlayer()
     }
     if (KEY_EVENTS.rightArrow && parseFloat(PLAYER.box.style.left) < 270 && clickedRead) {
-        movePlayer(GAME_CONFIG.characterSpeed, 0, 1);
-        animatePlayer();
+        movePlayer(GAME_CONFIG.characterSpeed, 0, 1)
+        animatePlayer()
     }
     if (KEY_EVENTS.upArrow && parseFloat(PLAYER.box.style.top) > -435 && clickedRead) {
-        movePlayer(0, (-1) * GAME_CONFIG.characterSpeed, 0);
-        animatePlayer();
+        movePlayer(0, -GAME_CONFIG.characterSpeed, 0)
+        animatePlayer()
     }
     if (KEY_EVENTS.downArrow && parseFloat(PLAYER.box.style.top) < 20 && clickedRead) {
-        movePlayer(0, GAME_CONFIG.characterSpeed, 0);
-        animatePlayer();
+        movePlayer(0, GAME_CONFIG.characterSpeed, 0)
+        animatePlayer()
     }
-    setTimeout(gameLoop, 1000 / GAME_CONFIG.gameSpeed);
+
     handleCollision()
+
+    setTimeout(gameLoop, 1000 / GAME_CONFIG.gameSpeed)
 }
+
 
 function handleCollision() {
     if (isColliding(PLAYER.box, GAME_SCREEN.redbox, -30)) {

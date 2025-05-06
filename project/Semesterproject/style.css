@@ -553,8 +553,52 @@ input:checked + .slide:before {
     z-index: 9000;
     display: none;
 }
-
-
+#chooseDisplay{
+    background-color: antiquewhite;
+    color: black;
+    text-align: center;
+    font-family: font2;
+    font-size: 2vh;
+    width: 70%;
+    padding: 2%;
+    margin-left: 13%;
+    position: absolute;
+    margin-top: 3vh;
+    z-index: 9000;
+    display: none;
+    align-items: center;
+}
+#chooseDisplay img{
+    height: 200px;
+    width: auto;
+}
+#imgs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#textChoose{
+    margin-left: 130%;
+    margin-top: 1vh;
+}
+#note{
+    background-color: antiquewhite;
+    color: black;
+    text-align: center;
+    font-family: font2;
+    font-size: 2vh;
+    width: 70%;
+    padding: 2%;
+    margin-left: 13%;
+    position: absolute;
+    margin-top: 3vh;
+    z-index: 9000;
+    display: none;
+    align-items: center;
+}
+#note img{
+    height: 200px;
+    width: auto;
+}
 
 
 

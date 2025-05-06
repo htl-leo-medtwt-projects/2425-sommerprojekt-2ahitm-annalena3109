@@ -92,9 +92,45 @@ function batsFlew(){
     document.body.style.backgroundImage = "url(img/wayBGpaper.jpg)" 
 }
 
+function showOptions(){
+    document.getElementById("infosB").style.display = "none"
+    document.getElementById("chooseDisplay").style.display = "block"
+}
+
+let noteId = null
+
+function choosePic(image){
+    let images = document.querySelectorAll('#chooseDisplay img')
+    images.forEach(img => {
+        img.src = 'img/notes/paper.png'
+    })
+    image.src = 'img/notes/paperChosen.png'
+    noteId = image.getAttribute('alt') 
+}
+
+function showChosenNote(){
+    if (noteId === null) {
+        alert('Please choose a note first!')
+        return
+    }
+    
+    document.getElementById("chooseDisplay").style.display = "none"
+    document.getElementById("note").style.display = "block"
+
+    if (noteId === '1') {
+        document.getElementById("note").innerHTML = '<img src="img/notes/1.jpg" alt="1">'
+    } else if (noteId === '2') {
+        document.getElementById("note").innerHTML = '<img src="img/notes/2.jpg" alt="2">'
+    } else if (noteId === '3') {
+        document.getElementById("note").innerHTML = '<img src="img/notes/3.jpg" alt="3">'
+    }
+    document.getElementById("note").innerHTML += `<br><div onclick="checkStatus(0, 3)">Read and continue</div>`
+}
+
 
 
 function skip(){
-    updateInfo(0, 4)
+    //updateInfo(0, 4)
+    continueThen()
     document.getElementById("firstPage").style.display = "none"
 }
