@@ -1,6 +1,8 @@
 //ending:
 function died(){
     console.log("You died.")
+
+    diedLeaderboard = true
     
     body.style.backgroundImage = "url(img/diedBG.jpg)"
     diedPage.style.display = "block"
@@ -9,9 +11,15 @@ function died(){
     document.getElementById("drowningScreen").style.display = "none"
     document.getElementById("heightsScreen").style.display = "none"
 }
+
 function showLeaderboard(){
-    body.style.backgroundImage = "url(img/wakeupBG.jpg)"
+
+    if(!diedLeaderboard){
+        body.style.backgroundImage = "url(img/wakeupBG.jpg)"
+    }
+
     diedPage.style.display = "none"
+    document.getElementById("diedScreen").style.display = "none"
     leaderboardPage.style.display = "block"
     document.getElementById("flickerScreen").style.backgroundColor = "rgba(255, 255, 255, 0.12)"
 
@@ -31,12 +39,19 @@ function showLeaderboard(){
 
 //try again:
 function tryAgain(){
+    diedLeaderboard = false
+    madeIt = false
+    madeIt2 = false
+    clickedRead = false
+    noteId = null
     diedPage.style.display = "none"
     leaderboardPage.style.display = "none" 
     firstPage.style.display = "block" 
     userstatus = 0
     levelCount = 0
     gameCount = 0
+    timer = 55
+    timer2 = 50
     username = " "
     body.style.backgroundImage = "url(img/startBG.jpg)"
     document.getElementById("flickerScreen").style.backgroundColor = "rgba(0, 0, 0, 0.511)"

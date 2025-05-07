@@ -19,6 +19,17 @@ function startBalancing() {
     loop = setInterval(gameLoop2, 100)
     moveDot()
     moveDotAnimation = requestAnimationFrame(moveDot)
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            tiltDirection = -1
+            angle -= 1
+        } else if (e.key === 'ArrowRight') {
+            tiltDirection = 1
+            angle += 1
+        }
+        updateStick()
+    })
 }
 
 function updateStick() {
@@ -36,6 +47,7 @@ function gameLoop2() {
     updateStick()
     if (Math.abs(angle) >= 25) {
         document.getElementById("heightsScreen").style.display = "none"
+        console.log("died bc angle")
         died()
         clearInterval(loop)
     }
@@ -44,16 +56,7 @@ function gameLoop2() {
     }
 }
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-        tiltDirection = -1
-        angle -= 1
-    } else if (e.key === 'ArrowRight') {
-        tiltDirection = 1
-        angle += 1
-    }
-    updateStick()
-})
+
 
 document.addEventListener('keyup', () => {
     tiltDirection = 0

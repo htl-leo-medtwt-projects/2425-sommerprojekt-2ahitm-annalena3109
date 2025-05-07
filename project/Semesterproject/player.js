@@ -56,14 +56,3 @@ function animatePlayer() {
     }
 }
 
-/*function animatePlayer() {
-    if (PLAYER.spriteImgNumber < 5) {
-      PLAYER.spriteImgNumber++
-    } else {
-      PLAYER.spriteImgNumber = 0
-    }
-  
-    let frameWidth = 85 // set this to your actual frame width in pixels
-    PLAYER.spriteImg.style.backgroundPosition = `-${PLAYER.spriteImgNumber * frameWidth}px 0`
-  }*/
-

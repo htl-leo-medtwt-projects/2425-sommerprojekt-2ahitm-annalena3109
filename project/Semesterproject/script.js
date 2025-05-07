@@ -14,12 +14,13 @@ let muteToggle = document.getElementById("muteToggle")
 let userstatus = 0
 let levelCount = 1
 let gameCount = 0
-let clickedRead = false;
+let clickedRead = false
 
-let currentSound;
+let currentSound
 let audioWIWO = document.getElementById("wiwo")
 let audioBats = document.getElementById("batsSound")
 
+let diedLeaderboard = false
 
 let madeIt = false
 let madeIt2 = false
@@ -151,11 +152,13 @@ function startTimer() {
 
 
 function startTimer2() {
+    console.log("start timer 2")
     countdown2 = setInterval(() => {
       if (timer2 > 0) {
         timer2--
         document.getElementById("timer2").textContent = timer2
       } else if (!madeIt2) {
+        console.log("died bc time")
         died()
         clearInterval(countdown2)
       }
@@ -170,6 +173,6 @@ function afterBalance(){
 
 
 function skip(){
-    updateInfo(0, 6)
+    updateInfo(0, 4)
     document.getElementById("firstPage").style.display = "none"
 }
