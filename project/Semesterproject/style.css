@@ -609,6 +609,9 @@ input:checked + .slide:before {
 }
 
 /*Styling Heights Level*/
+#heightsScreen{
+    z-index: 500;
+}
 #infosH{
     background-color: rgb(191, 195, 244);
     color: black;
@@ -679,6 +682,54 @@ path {
 circle {
     fill: red;
 }
+#afterBalancing{
+    display: none;
+}
+#infosC{
+    background-color: rgb(184, 160, 122);
+    color: black;
+    text-align: center;
+    font-family: font2;
+    font-size: 2vh;
+    width: 70%;
+    padding: 2%;
+    margin-left: 13%;
+    position: absolute;
+    margin-top: 3vh;
+    z-index: 9000;
+    display: none;
+    align-items: center;
+}
+#tut2{
+    background-color: rgb(184, 160, 122);
+    color: black;
+    text-align: center;
+    font-family: font2;
+    font-size: 2vh;
+    width: 70%;
+    padding: 2%;
+    margin-left: 13%;
+    position: absolute;
+    margin-top: 20vh;
+    z-index: 9000;
+    display: none;
+    align-items: center;
+}
+#gameCanvas{
+    display: none;
+    z-index: 12000;
+    position: absolute;
+}
+#timer3{
+    color: white;
+    font-family: font2;
+    font-size: 5vh;
+    position: absolute;
+    margin-top: 5vh;
+    margin-left: 5%;
+    display: none;
+}
+
 
 
 #skip{

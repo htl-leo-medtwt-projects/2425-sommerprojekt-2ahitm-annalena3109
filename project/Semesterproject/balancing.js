@@ -1,3 +1,5 @@
+//mit Hilfe von Google und ChatGPT 
+
 let angle = 0
 let balanceSpeed = 1
 let stick = document.getElementById('stick')
@@ -7,6 +9,8 @@ let tiltDirection = 0
 let position = 0
 let pathLength = 0
 
+
+//Balancing:
 function balance() {
     document.getElementById("infosH").style.display = "none"
     document.getElementById("tut").style.display = "block"
@@ -56,12 +60,12 @@ function gameLoop2() {
     }
 }
 
-
-
 document.addEventListener('keyup', () => {
     tiltDirection = 0
 })
 
+
+//dot moving along the "way"
 function moveDot() {
     const path = document.getElementById("myPath")
     const dot = document.getElementById("dot")

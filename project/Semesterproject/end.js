@@ -1,4 +1,4 @@
-//ending:
+//ending:fc
 function died(){
     console.log("You died.")
 
@@ -12,6 +12,7 @@ function died(){
     document.getElementById("heightsScreen").style.display = "none"
 }
 
+//show leaderboard:
 function showLeaderboard(){
 
     if(!diedLeaderboard){

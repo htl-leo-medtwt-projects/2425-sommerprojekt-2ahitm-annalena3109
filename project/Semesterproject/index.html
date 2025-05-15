@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="typing.js" defer></script>
     <script src="balancing.js" defer></script>
+    <script src="climb.js" defer></script>
 </head>
 <body>
     <div id="flickerScreen"></div>
@@ -200,9 +201,34 @@
             </div>
         </div>
         <div id="afterBalancing">
-            
+            <div id="infosC">
+                <span>You make it across—carefully, foot by foot along the narrow ledge, every shift in weight making the stone creak beneath you.</span><br>
+                <span>Your breath is shallow, focused, until finally, you reach the other side. Solid ground. You made it.</span><br>
+                <span>You let out a slow exhale, tension bleeding from your shoulders as you take a cautious step forward—</span><br>
+                <span>And then the ground disappears.</span><br>
+                <span>A patch of loose rock crumbles under your weight. There's no time to react—</span><br>
+                <span>Your foot slips, your balance vanishes, and you drop into a hidden crack in the earth.</span><br>
+                <span>The space is tight, barely wide enough to catch your fall without crushing you.</span><br>
+                <span>You're wedged in, bruised and breathless. The air is still, the stone cold against your back.</span><br>
+                <span>There's no space to turn around. No way back.</span><br>
+                <span>Just one way forward—up.</span><br><br>
+                <span onclick="climb()">Continue...</span>
+            </div>
         </div>
-          
+    </div>
+
+    <!--------------------------------------
+    -------------Climbing Screen------------
+    ---------------------------------------->
+    <div id="climbScreen">
+        <div id="tut2">
+            <span>Use left and right arrow to balance out your way. Watch out, so you don't fall</span><br>
+            <span>Watch the red dot - you can move when you're balanced enough. Be fast - you only have 50 seconds!</span>
+            <span>Make sure to keep your angle under 25°, or you will fall!</span><br><br>
+            <span onclick="startClimbing()">Start</span>
+        </div>
+        <div id="timer3">15</div>
+        <canvas id="gameCanvas" width="1000" height="600"></canvas>
     </div>
 
     <!--------------------------------------

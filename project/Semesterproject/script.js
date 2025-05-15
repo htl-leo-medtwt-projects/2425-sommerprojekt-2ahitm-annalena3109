@@ -24,8 +24,10 @@ let diedLeaderboard = false
 
 let madeIt = false
 let madeIt2 = false
+let madeIt3 = false
 let timer = 55
 let timer2 = 50
+let timer3 = 15
 
 //audio controls:
 currentSound = audioWIWO
@@ -165,14 +167,34 @@ function startTimer2() {
     }, 1000)
 }
 
+function startTimer3() {
+    console.log("start timer 3")
+    countdown3 = setInterval(() => {
+      if (timer3 > 0) {
+        timer3--
+        document.getElementById("timer3").textContent = timer3
+      } else if (!madeIt3) {
+        console.log("died bc time")
+        died()
+        clearInterval(countdown3)
+      }
+    }, 1000)
+}
+
 function afterBalance(){
     clearInterval(countdown2)
     madeIt2 = true
-    document.getElementById("game").style.display = "none"
+    updateInfo(0, 7)
+}
+
+function afterClimb(){
+    clearInterval(countdown3)
+    madeIt3 = true
+    updateInfo(0, 8)
 }
 
 
 function skip(){
-    updateInfo(0, 4)
+    updateInfo(0, 7)
     document.getElementById("firstPage").style.display = "none"
 }

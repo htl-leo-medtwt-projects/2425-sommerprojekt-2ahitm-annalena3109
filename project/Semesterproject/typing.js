@@ -1,3 +1,4 @@
+//library
 
 document.getElementById("tth").addEventListener('click', function() {
     var typed = new Typed('#textHe', {

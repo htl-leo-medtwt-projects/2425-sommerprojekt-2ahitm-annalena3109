@@ -278,4 +278,16 @@ function updateInfo(points, gameCount){
         document.getElementById("heightsScreen").style.display = "block"
         document.getElementById("infosH").style.display = "block"
     }
+    if(gameCount == 7){
+        document.body.style.backgroundImage = "url(img/cliffBG.jpg)"
+        document.getElementById("game").style.display = "none"
+        document.getElementById("afterBalancing").style.display = "block"
+        document.getElementById("infosC").style.display = "block"
+    }
+    if(gameCount == 8){
+        canvas.style.display = "none"
+        document.body.style.backgroundImage = "url(img/areaBG.jpg)"
+        document.getElementById("timer3").style.display = "none"
+
+    }
 }
