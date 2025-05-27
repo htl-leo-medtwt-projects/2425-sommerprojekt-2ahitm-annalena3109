@@ -762,6 +762,7 @@ circle {
     padding-bottom: 0.7%;
     display: none;
     margin-left: 49.5%;
+    z-index: 9000;
 }
 #infosG{
     background-color: rgb(156, 174, 203);
@@ -777,6 +778,81 @@ circle {
     z-index: 9000;
     display: none;
     align-items: center;
+}
+
+#hallucinations{
+    z-index: 9000;
+}
+#hallucinations img{
+    position: absolute;
+}
+
+#halluc1{
+    animation: fadeInPic1 2s forwards;
+    top:30%;
+    left: 60%;
+    width: 300px;
+    z-index: 9000;
+}
+#halluc2{
+    animation: fadeInPic2 2s forwards;
+    top: 20%;
+    left: 20%;
+    width: 300px;
+    z-index: 9000;
+}
+#halluc3{
+    animation: fadeInPic3 2s forwards;
+    top: 40%;
+    left: 40%;
+    width: 300px;
+    z-index: 9000;
+}
+#halluc4{
+    animation: fadeInPic4 2s forwards;
+    top: 30%;
+    left: 10%;
+    width: 300px;
+    z-index: 9000;
+}
+#halluc5{
+    animation: fadeInPic5 2s forwards;
+    top: 70%;
+    left: 50%;
+    width: 100px;
+    z-index: 9000;
+}
+#halluc6{
+    animation: fadeInPic6 2s forwards;
+    top:50%;
+    left: 60%;
+    width: 300px;
+    z-index: 9000;
+}
+
+@keyframes fadeInPic1 {
+    0%{opacity: 0;}
+    100%{opacity: 0.8;}
+}
+@keyframes fadeInPic2 {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes fadeInPic3 {
+    0%{opacity: 0;}
+    100%{opacity: 0.35;}
+}
+@keyframes fadeInPic4 {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes fadeInPic5 {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes fadeInPic6 {
+    0%{opacity: 0;}
+    100%{opacity: 0.35;}
 }
 
 

@@ -10,6 +10,7 @@ function died(){
 
     document.getElementById("drowningScreen").style.display = "none"
     document.getElementById("heightsScreen").style.display = "none"
+    document.getElementById("hallucinations").style.display = "none"
 }
 
 //show leaderboard:

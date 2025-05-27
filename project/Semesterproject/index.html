@@ -16,6 +16,7 @@
     <script src="typing.js" defer></script>
     <script src="balancing.js" defer></script>
     <script src="climb.js" defer></script>
+    <script src="hallucinations.js" defer></script>
 </head>
 <body>
     <div id="flickerScreen"></div>
@@ -254,9 +255,11 @@
             <span>Shapes flicker at the edge of your sight, whispering voices echoing in the silence.</span><br>
             <span>You remind yourself: not everything here is what it seems.</span><br>
             <span>Trust your senses carefully. Distinguish the real from the illusions—</span><br>
-            <span>Because some dangers wear a mask you can't see.</span><br><br>
-            <span onclick="exploreCabin()">Continue...</span>
+            <span>Because some dangers wear a mask you can't see. Kick the hallucinations - you're safe. Kick the danger - you'll die.</span><br><br>
+            <span style="color: rgb(83, 20, 255);">Don't trust the small, the sun, and the dust.</span><br><br>
+            <span onclick="exploreCabin()" >Continue...</span>
         </div>
+        <div id="hallucinations"></div>
     </div>
 
     <!--------------------------------------
