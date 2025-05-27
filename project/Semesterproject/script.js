@@ -192,9 +192,19 @@ function afterClimb(){
     madeIt3 = true
     updateInfo(0, 8)
 }
+function approachCabin(){
+    document.body.style.backgroundImage = "url(img/doorBG.jpg)"
+    document.getElementById("infosS").style.display = "none"
+    document.getElementById("open").style.display = "block"
+}
 
+function openDoor(){
+    document.body.style.backgroundImage = "url(img/hallucinationsBG.jpg)"
+    document.getElementById("open").style.display = "none"
+    document.getElementById("infosG").style.display = "block"
+}
 
 function skip(){
-    updateInfo(0, 7)
+    updateInfo(0, 8)
     document.getElementById("firstPage").style.display = "none"
 }

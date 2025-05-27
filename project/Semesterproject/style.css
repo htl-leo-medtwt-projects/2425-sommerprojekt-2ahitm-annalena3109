@@ -731,6 +731,54 @@ circle {
 }
 
 
+/*Styling Story Part*/
+#storyscreen{
+    display: none;
+}
+#infosS{
+    background-color: rgb(156, 174, 203);
+    color: black;
+    text-align: center;
+    font-family: font2;
+    font-size: 2vh;
+    width: 70%;
+    padding: 2%;
+    margin-left: 13%;
+    position: absolute;
+    margin-top: 3vh;
+    z-index: 9000;
+    display: none;
+    align-items: center;
+}
+#open{
+    background-color: rgba(56, 34, 0, 0.74);
+    color: #ffffff8c;
+    font-family: font2;
+    font-size: 2vh;
+    border-radius: 50px;
+    position: absolute;
+    margin-top: 48vh;
+    padding-top: 0.7%;
+    padding-bottom: 0.7%;
+    display: none;
+    margin-left: 49.5%;
+}
+#infosG{
+    background-color: rgb(156, 174, 203);
+    color: black;
+    text-align: center;
+    font-family: font2;
+    font-size: 2vh;
+    width: 70%;
+    padding: 2%;
+    margin-left: 13%;
+    position: absolute;
+    margin-top: 3vh;
+    z-index: 9000;
+    display: none;
+    align-items: center;
+}
+
 
 #skip{
     position: absolute;

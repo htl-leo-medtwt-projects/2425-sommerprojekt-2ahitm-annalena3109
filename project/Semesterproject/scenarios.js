@@ -288,6 +288,7 @@ function updateInfo(points, gameCount){
         canvas.style.display = "none"
         document.body.style.backgroundImage = "url(img/areaBG.jpg)"
         document.getElementById("timer3").style.display = "none"
-
+        document.getElementById("storyscreen").style.display = "block"
+        document.getElementById("infosS").style.display = "block"
     }
 }
