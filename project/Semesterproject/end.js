@@ -1,4 +1,4 @@
-//ending:fc
+//ending:
 function died(){
     console.log("You died.")
 
@@ -12,6 +12,12 @@ function died(){
     document.getElementById("heightsScreen").style.display = "none"
     document.getElementById("hallucinations").style.display = "none"
 }
+function won(){
+    body.style.backgroundImage = "url(img/wakeupBG.jpg)"
+
+    document.getElementById("hallucinations").style.display = "none"
+    document.getElementById("wonScreen").style.display = "block"
+}
 
 //show leaderboard:
 function showLeaderboard(){
@@ -20,6 +26,7 @@ function showLeaderboard(){
         body.style.backgroundImage = "url(img/wakeupBG.jpg)"
     }
 
+    document.getElementById("wonScreen").style.display = "none"
     diedPage.style.display = "none"
     document.getElementById("diedScreen").style.display = "none"
     leaderboardPage.style.display = "block"
@@ -41,7 +48,8 @@ function showLeaderboard(){
 
 //try again:
 function tryAgain(){
-    diedLeaderboard = false
+    location.reload()
+    /*diedLeaderboard = false
     madeIt = false
     madeIt2 = false
     clickedRead = false
@@ -58,6 +66,7 @@ function tryAgain(){
     body.style.backgroundImage = "url(img/startBG.jpg)"
     document.getElementById("flickerScreen").style.backgroundColor = "rgba(0, 0, 0, 0.511)"
     console.log("userstatus: " + userstatus + ", levelcount: " + levelCount + ", gamecount: " + gameCount + ", username: " + username)
+    */
 }
 
 

@@ -1,6 +1,6 @@
 let hallucinations = [
-    {number: 1, real: false, img: "img/hallucinations/6.png"}, //hallucination; safe
     {number: 2, real: true, img: "img/hallucinations/1.png"}, //no hallucination; danger
+    {number: 1, real: false, img: "img/hallucinations/6.png"}, //hallucination; safe
     {number: 3, real: false, img: "img/hallucinations/3.png"}, //hallucination; safe
     {number: 4, real: false, img: "img/hallucinations/2.png"}, //hallucination; safe
     {number: 5, real: true, img: "img/hallucinations/5.png"}, //no hallucination; danger
@@ -33,6 +33,7 @@ function checkIfSafe(isSafe, img){
     }
     else{
         img.style.display = "none"
+        img.real = false
         checkIfAnyDangersLeft()
     }
 }
@@ -50,6 +51,6 @@ function checkIfAnyDangersLeft(){
         return data && !data.real 
     })
     if (!anySafeLeft) {
-        document.body.style.backgroundImage = ""
+        won()
     } 
 }

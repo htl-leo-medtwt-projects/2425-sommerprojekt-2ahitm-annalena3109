@@ -372,6 +372,39 @@ input:checked + .slide:before {
     margin-top: -15vh;
     margin-left: 70%;
 }
+/*won page styling*/
+#wonScreen{
+    display: none;
+}
+#wonText{
+    font-family: font3;
+    color: white;
+    text-shadow: 15px 2px rgba(0, 0, 0, 0.735);
+    text-align: center;
+    position: absolute;
+}
+#wonHeader{
+    font-size: 15vh;
+    margin-top: 10vh;
+}
+#wonText1{
+    font-size: 10vh;
+    margin-top: -17vh;
+    width: 80%;
+    margin-left: 10%;
+}
+#button{
+    font-family: font3;
+    font-size: 10vh;
+    color: white;
+    position: absolute;
+    margin-top: 80vh;
+    margin-left: 25%;
+    width: 100%;
+}
+#button:hover{
+    text-decoration: underline;
+}
 
 /*Leaderboard page styling*/
 #leaderboardScreen{
@@ -795,41 +828,82 @@ circle {
     z-index: 9000;
 }
 #halluc2{
-    animation: fadeInPic2 2s forwards;
-    top: 20%;
-    left: 20%;
+    animation: fadeInPic2 2s forwards, fly1stGhost 20s infinite ease-in-out;
     width: 300px;
     z-index: 9000;
 }
 #halluc3{
-    animation: fadeInPic3 2s forwards;
-    top: 40%;
+    animation: fadeInPic3 2s forwards, fly3rdGhost 5s infinite ease-in-out;
     left: 40%;
     width: 300px;
     z-index: 9000;
 }
 #halluc4{
-    animation: fadeInPic4 2s forwards;
-    top: 30%;
-    left: 10%;
+    animation: fadeInPic4 2s forwards, fly2ndGhost 15s infinite ease-in-out;
     width: 300px;
     z-index: 9000;
 }
 #halluc5{
-    animation: fadeInPic5 2s forwards;
+    animation: fadeInPic5 2s forwards, shakeHand 4s infinite ;
     top: 70%;
     left: 50%;
     width: 100px;
     z-index: 9000;
+    transition: ease-in-out;
 }
 #halluc6{
-    animation: fadeInPic6 2s forwards;
-    top:50%;
+    animation: fadeInPic6 2s forwards, fly4thGhost 5s infinite ease-in-out;
     left: 60%;
     width: 300px;
     z-index: 9000;
 }
 
+/*Move animations for each hallucination - if needed*/
+@keyframes shakeHand {
+    0%{transform: rotate(0deg);}
+    50%{transform: rotate(-35deg);}
+    100%{transform: rotate(0deg);}
+}
+@keyframes fly2ndGhost {
+    0%{
+        top: 20%;
+        left: 20%;
+    }
+    50%{
+        top: 28%;
+        left: 30%;
+    }
+    100%{
+        top: 20%;
+        left: 20%;
+    }
+}
+@keyframes fly1stGhost {
+    0%{
+        top: 50%;
+        left: -20%;
+    }
+    50%{
+        top: 30%;
+        left: 10%;
+    }
+    100%{
+        top: 50%;
+        left: -20%;
+    }
+}
+@keyframes fly3rdGhost {
+    0%{top: 40%;}
+    50%{top: 36%;}
+    100%{top: 40%;}
+}
+@keyframes fly4thGhost {
+    0%{top: 50%;}
+    50%{top: 55%;}
+    100%{top: 50%;}
+}
+
+/*Fade-In animations for each hallucination*/
 @keyframes fadeInPic1 {
     0%{opacity: 0;}
     100%{opacity: 0.8;}
