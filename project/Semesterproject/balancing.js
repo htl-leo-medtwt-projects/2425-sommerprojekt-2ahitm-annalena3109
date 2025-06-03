@@ -9,6 +9,8 @@ let tiltDirection = 0
 let position = 0
 let pathLength = 0
 
+let gameRunning2 = false
+
 
 //Balancing:
 function balance() {
@@ -23,6 +25,7 @@ function startBalancing() {
     loop = setInterval(gameLoop2, 100)
     moveDot()
     moveDotAnimation = requestAnimationFrame(moveDot)
+
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
@@ -41,24 +44,27 @@ function updateStick() {
 }
 
 function gameLoop2() {
-    if (tiltDirection === 0) {
-        if (angle < 0) {
-            angle += balanceSpeed * -1
-        } else if (angle > 0) {
-            angle += balanceSpeed * 1
+    if(gameRunning2){
+        if (tiltDirection === 0) {
+            if (angle < 0) {
+                angle += balanceSpeed * -1
+            } else if (angle > 0) {
+                angle += balanceSpeed * 1
+            }
+        }    
+        updateStick()
+        if (Math.abs(angle) >= 25 && madeIt2 == false) {
+            document.getElementById("heightsScreen").style.display = "none"
+            console.log("died bc angle")
+            died()
+            clearInterval(loop)
         }
-    }    
-    updateStick()
-    if (Math.abs(angle) >= 25) {
-        document.getElementById("heightsScreen").style.display = "none"
-        console.log("died bc angle")
-        died()
-        clearInterval(loop)
+        if (hasReachedEndOfPath()) {
+            afterBalance()
     }
-    if (hasReachedEndOfPath()) {
-        afterBalance()
     }
 }
+
 
 document.addEventListener('keyup', () => {
     tiltDirection = 0
@@ -67,11 +73,11 @@ document.addEventListener('keyup', () => {
 
 //dot moving along the "way"
 function moveDot() {
-    const path = document.getElementById("myPath")
-    const dot = document.getElementById("dot")
+    let path = document.getElementById("myPath")
+    let dot = document.getElementById("dot")
 
     if (path && path instanceof SVGPathElement) {
-        const point = path.getPointAtLength(pathLength * position)
+        let point = path.getPointAtLength(pathLength * position)
         dot.setAttribute("cx", point.x)
         dot.setAttribute("cy", point.y)
 

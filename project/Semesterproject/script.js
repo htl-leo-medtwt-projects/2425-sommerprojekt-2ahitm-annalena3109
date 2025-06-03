@@ -19,6 +19,8 @@ let clickedRead = false
 let currentSound
 let audioWIWO = document.getElementById("wiwo")
 let audioBats = document.getElementById("batsSound")
+let storm = document.getElementById("storm")
+let waterSound = document.getElementById("water")
 
 let diedLeaderboard = false
 
@@ -66,6 +68,8 @@ muteToggle.addEventListener("change", function () {
 
 function showVideo(){
     startTimer()
+    waterSound.play()
+    waterSound.volume = volumeAll
     document.getElementById("infosD").style.display = "none"
     document.getElementById("video").play()
     clickedRead = true;
@@ -184,13 +188,13 @@ function startTimer3() {
 function afterBalance(){
     clearInterval(countdown2)
     madeIt2 = true
-    updateInfo(0, 7)
+    checkStatus(0,3)
 }
 
 function afterClimb(){
     clearInterval(countdown3)
     madeIt3 = true
-    updateInfo(0, 8)
+    checkStatus(0,4)
 }
 function approachCabin(){
     document.body.style.backgroundImage = "url(img/doorBG.jpg)"
@@ -205,6 +209,6 @@ function openDoor(){
 }
 
 function skip(){
-    updateInfo(0, 8)
+    updateInfo(0, 6)
     document.getElementById("firstPage").style.display = "none"
 }

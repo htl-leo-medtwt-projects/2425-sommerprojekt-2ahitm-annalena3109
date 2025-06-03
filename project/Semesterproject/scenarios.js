@@ -262,9 +262,11 @@ function updateInfo(points, gameCount){
         PLAYER.box = document.getElementById("player")
         PLAYER.spriteImg = document.getElementById("spriteImg")
         GAME_SCREEN.redbox = document.getElementById('redBox')
+        gameRunning = true
         gameLoop()
     }
     if(gameCount == 5){
+        waterSound.pause()
         document.getElementById("surface").style.display = "none"
         document.getElementById("meet").style.display = "block"
         document.body.style.backgroundImage = "url(img/waterManBG.jpg)"
@@ -272,6 +274,11 @@ function updateInfo(points, gameCount){
         gameRunning = false;
     }
     if(gameCount == 6){
+        console.log("went into UpIn 6")
+        gameRunning = false;
+        gameRunning2 = true
+        storm.play()
+        storm.volume = volumeAll/2
         document.body.style.backgroundImage = "url(img/heightsBG.jpg)"
         document.getElementById("note").style.display = "none"
         document.getElementById("drowningScreen").style.display = "none"
@@ -279,14 +286,20 @@ function updateInfo(points, gameCount){
         document.getElementById("infosH").style.display = "block"
     }
     if(gameCount == 7){
+        console.log("went into UpIn7")
+        gameRunning = false;
+        gameRunning2 = false
+        storm.pause()
         document.body.style.backgroundImage = "url(img/cliffBG.jpg)"
         document.getElementById("game").style.display = "none"
         document.getElementById("afterBalancing").style.display = "block"
         document.getElementById("infosC").style.display = "block"
     }
     if(gameCount == 8){
+        console.log("went into UpIn 8")
         canvas.style.display = "none"
         document.body.style.backgroundImage = "url(img/areaBG.jpg)"
+        document.getElementById("climbScreen").style.display = "none"
         document.getElementById("timer3").style.display = "none"
         document.getElementById("storyscreen").style.display = "block"
         document.getElementById("infosS").style.display = "block"

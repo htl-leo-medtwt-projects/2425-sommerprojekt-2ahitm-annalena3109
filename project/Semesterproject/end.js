@@ -11,6 +11,10 @@ function died(){
     document.getElementById("drowningScreen").style.display = "none"
     document.getElementById("heightsScreen").style.display = "none"
     document.getElementById("hallucinations").style.display = "none"
+    document.getElementById("climbScreen").style.display = "none"
+
+    storm.pause()
+    waterSound.pause()
 }
 function won(){
     body.style.backgroundImage = "url(img/wakeupBG.jpg)"

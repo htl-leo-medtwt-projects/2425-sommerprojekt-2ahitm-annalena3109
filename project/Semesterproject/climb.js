@@ -1,3 +1,5 @@
+//mit hilfe von Katharina (und für Verständnis ChatGPT)
+
 function climb() {
     document.getElementById("infosC").style.display = "none"
     document.getElementById("tut2").style.display = "block"

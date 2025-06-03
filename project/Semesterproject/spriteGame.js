@@ -13,36 +13,37 @@ GAME_SCREEN.surface.style.transform = `scale(${parseFloat(GAME_SCREEN.surfaceSca
 
 let GAME_CONFIG = {
     gameSpeed: 15, // game loop refresh rate (pictures per second)
-    characterSpeed: 5 //0.8 // move offset in PX
+    characterSpeed: 0.8 //5 // move offset in PX
 }
 
-let gameRunning = true 
+let gameRunning = false 
 
 function gameLoop(){
     if (!gameRunning) return 
+    if(gameRunning){
+        console.log("loop")
 
-    console.log("loop")
+        if (KEY_EVENTS.leftArrow && parseFloat(PLAYER.box.style.left) > -190 && clickedRead) {
+            movePlayer(-GAME_CONFIG.characterSpeed, 0, -1)
+            animatePlayer()
+        }
+        if (KEY_EVENTS.rightArrow && parseFloat(PLAYER.box.style.left) < 270 && clickedRead) {
+            movePlayer(GAME_CONFIG.characterSpeed, 0, 1)
+            animatePlayer()
+        }
+        if (KEY_EVENTS.upArrow && parseFloat(PLAYER.box.style.top) > -435 && clickedRead) {
+            movePlayer(0, -GAME_CONFIG.characterSpeed, 0)
+            animatePlayer()
+        }
+        if (KEY_EVENTS.downArrow && parseFloat(PLAYER.box.style.top) < 20 && clickedRead) {
+            movePlayer(0, GAME_CONFIG.characterSpeed, 0)
+            animatePlayer()
+        }
 
-    if (KEY_EVENTS.leftArrow && parseFloat(PLAYER.box.style.left) > -190 && clickedRead) {
-        movePlayer(-GAME_CONFIG.characterSpeed, 0, -1)
-        animatePlayer()
-    }
-    if (KEY_EVENTS.rightArrow && parseFloat(PLAYER.box.style.left) < 270 && clickedRead) {
-        movePlayer(GAME_CONFIG.characterSpeed, 0, 1)
-        animatePlayer()
-    }
-    if (KEY_EVENTS.upArrow && parseFloat(PLAYER.box.style.top) > -435 && clickedRead) {
-        movePlayer(0, -GAME_CONFIG.characterSpeed, 0)
-        animatePlayer()
-    }
-    if (KEY_EVENTS.downArrow && parseFloat(PLAYER.box.style.top) < 20 && clickedRead) {
-        movePlayer(0, GAME_CONFIG.characterSpeed, 0)
-        animatePlayer()
-    }
+        handleCollision()
 
-    handleCollision()
-
-    setTimeout(gameLoop, 1000 / GAME_CONFIG.gameSpeed)
+        setTimeout(gameLoop, 1000 / GAME_CONFIG.gameSpeed)
+    }
 }
 
 

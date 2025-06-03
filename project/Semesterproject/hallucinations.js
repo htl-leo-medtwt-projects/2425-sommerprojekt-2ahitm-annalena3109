@@ -51,6 +51,7 @@ function checkIfAnyDangersLeft(){
         return data && !data.real 
     })
     if (!anySafeLeft) {
+        gameCount++
         won()
     } 
 }
